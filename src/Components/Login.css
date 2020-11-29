@@ -1,0 +1,19 @@
+@media all and (min-width: 480px) {
+  .Login {
+    padding: 60px 0;
+  }
+
+  .Login form {
+    margin: 0 auto;
+    max-width: 320px;
+  }
+  
+}
+.btnSubmit{
+  background-color: "#d90429" !important;
+	border: "none" !important;
+	outline-color: "#d90429" !important;
+}
+.btnSubmit:active{
+	outline-color: "#d90429" !important;
+}
