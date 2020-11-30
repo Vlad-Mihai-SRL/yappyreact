@@ -85,7 +85,7 @@ export default function Register(props) {
 
 	return (
 		<Container className="pl-5 pr-5">
-			<div className="Login">
+			<div className="Login mt-5">
 				<h1 style={{ textAlign: "center" }} className="mb-5">
 					{" "}
 					Yappy!{" "}
