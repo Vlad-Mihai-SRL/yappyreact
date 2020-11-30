@@ -56,6 +56,7 @@ export default function Register(props) {
 							name: petName,
 							date: petDate,
 							breed: petBreed,
+							color: petColor,
 							sex: petSex,
 							weight: petWeight,
 							diet: petDiet,
