@@ -36,7 +36,7 @@ function App() {
 						<Login />
 						<Container className="text-center">
 							<p>
-								If you don't have an account
+								If you don't have an account &nbsp;
 								<Button
 									style={{ backgroundColor: "#d90429", border: "none" }}
 									onClick={() => {
