@@ -8,6 +8,10 @@ import Navbar_First from "./Navbar.js";
 import Cookies from "js-cookie";
 import { useState, useEffect } from "react";
 import Register from "./Register";
+import MainPage from "./MainPage";
+import Profile from "./Profile";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
 const axios = require("axios").default;
 
 function App() {
@@ -62,23 +66,16 @@ function App() {
 	} else if (isValid === undefined) return <div className="App"></div>;
 	else {
 		return (
-			<>
-				<Container>
-					<h1 className="text-center pl-5 pr-5"> Welcome to Yappy! </h1>
-					<Button
-						block
-						className="text-center pl-5 pr-5"
-						onClick={() => {
-							Cookies.remove("sessionID");
-							Cookies.remove("userEmail");
-							window.location.reload(false);
-						}}
-					>
-						{" "}
-						Log Out{" "}
-					</Button>
-				</Container>
-			</>
+			<Router>
+				<Switch>
+					<Route path="/myprofile">
+						<Profile />
+					</Route>
+					<Route path="/">
+						<MainPage />
+					</Route>
+				</Switch>
+			</Router>
 		);
 	}
 }
