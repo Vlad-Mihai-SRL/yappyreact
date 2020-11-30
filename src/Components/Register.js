@@ -104,7 +104,7 @@ export default function Register(props) {
 							onChange={(e) => setEmail(e.target.value)}
 						/>
 					</Form.Group>
-					<Form.Group size="lg" controlId="email">
+					<Form.Group size="lg" controlId="FullName">
 						<Form.Label>Full Name</Form.Label>
 						<Form.Control
 							type="text"
