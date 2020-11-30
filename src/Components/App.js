@@ -61,7 +61,25 @@ function App() {
 			);
 	} else if (isValid === undefined) return <div className="App"></div>;
 	else {
-		return <h1> Halo </h1>;
+		return (
+			<>
+				<Container>
+					<h1 className="text-center pl-5 pr-5"> Welcome to Yappy! </h1>
+					<Button
+						block
+						className="text-center pl-5 pr-5"
+						onClick={() => {
+							Cookies.remove("sessionID");
+							Cookies.remove("userEmail");
+							window.location.reload(false);
+						}}
+					>
+						{" "}
+						Log Out{" "}
+					</Button>
+				</Container>
+			</>
+		);
 	}
 }
 
