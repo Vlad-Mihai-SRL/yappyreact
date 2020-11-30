@@ -25,6 +25,7 @@ export default function Profile() {
 			});
 		event.preventDefault();
 	}
+
 	const [loaded, setLoaded] = useState(false);
 	const [animal, setAnimal] = useState({ name: "" });
 	function getByEmail(email) {
@@ -38,7 +39,30 @@ export default function Profile() {
 	}
 	const userEmail = Cookies.get("userEmail");
 	const userID = Cookies.get("sessionID");
+	function handleChange(event) {
+		const formData = new FormData();
+		formData.append("avatar", event.target.files[0]);
+		formData.append("email", userEmail);
+		formData.append("id", userID);
+		formData.append("ind", "0");
+		// Post the form, just make sure to set the 'Content-Type' header
+		axios
+			.post("http://35.195.94.48:8080/api/modify-profilepic", formData, {
+				headers: {
+					"Content-Type": "multipart/form-data",
+				},
+			})
+			.then((response) => {
+				if (response.reason === undefined) {
+					console.log(response);
+					window.location.reload(false);
+				} else {
+					console.log("ERROR");
+				}
+			});
 
+		event.preventDefault();
+	}
 	if (loaded === false) {
 		getByEmail(userEmail);
 		return <Container></Container>;
@@ -54,15 +78,19 @@ export default function Profile() {
 								userEmail +
 								"/0/pp.png"
 							}
+							style={{ height: "15vh", width: "15vh", borderRadius: "50%" }}
 						/>
-						<h5 style={{ textAlign: "center" }} className="mb-5">
+						<br></br>
+						<label> Change profile picture</label>
+						<br></br>
+						<input type="file" name="file" onChange={handleChange} />
+						<h5 style={{ textAlign: "center" }} className="mb-3 mt-3">
 							{animal.name}
 						</h5>
 						<Form onSubmit={handleSubmit}>
 							<Form.Group size="lg" controlId="name">
 								<Form.Label>Name</Form.Label>
 								<Form.Control
-									autoFocus
 									type="text"
 									value={animal.name}
 									onChange={(e) => {
@@ -74,7 +102,6 @@ export default function Profile() {
 							<Form.Group size="lg" controlId="date">
 								<Form.Label>Date of Birth</Form.Label>
 								<Form.Control
-									autoFocus
 									type="date"
 									value={animal.date}
 									onChange={(e) => {
