@@ -91,9 +91,9 @@ export default function Register(props) {
 				<Form onSubmit={handleSubmit}>
 					<Form.Group size="lg" controlId="email">
 						<Form.Label>
-							My owner's email
+							My owner's email{" "}
 							<span style={{ color: "red" }}>
-								<b> *</b>
+								<img src="pawred.png" height="20px" width="20px" />
 							</span>
 						</Form.Label>
 						<Form.Control
@@ -105,9 +105,9 @@ export default function Register(props) {
 					</Form.Group>
 					<Form.Group size="lg" controlId="FullName">
 						<Form.Label>
-							My owner's full name
+							My owner's full name{" "}
 							<span style={{ color: "red" }}>
-								<b> *</b>
+								<img src="pawred.png" height="20px" width="20px" />
 							</span>
 						</Form.Label>
 						<Form.Control
@@ -118,9 +118,9 @@ export default function Register(props) {
 					</Form.Group>
 					<Form.Group size="lg" controlId="password">
 						<Form.Label>
-							Password
+							Password{" "}
 							<span style={{ color: "red" }}>
-								<b> *</b>
+								<img src="pawred.png" height="20px" width="20px" />
 							</span>
 						</Form.Label>
 						<Form.Control
@@ -131,9 +131,9 @@ export default function Register(props) {
 					</Form.Group>
 					<Form.Group size="lg" controlId="password">
 						<Form.Label>
-							Confirm Password
+							Confirm Password{" "}
 							<span style={{ color: "red" }}>
-								<b> *</b>
+								<img src="pawred.png" height="20px" width="20px" />
 							</span>
 						</Form.Label>
 						<Form.Control
@@ -144,9 +144,9 @@ export default function Register(props) {
 					</Form.Group>
 					<Form.Group size="lg" controlId="petName">
 						<Form.Label>
-							My name
+							My name{" "}
 							<span style={{ color: "red" }}>
-								<b> *</b>
+								<img src="pawred.png" height="20px" width="20px" />
 							</span>
 						</Form.Label>
 						<Form.Control
@@ -157,9 +157,9 @@ export default function Register(props) {
 					</Form.Group>
 					<Form.Group size="lg" controlId="petDate">
 						<Form.Label>
-							My date of birth
+							My date of birth{" "}
 							<span style={{ color: "red" }}>
-								<b> *</b>
+								<img src="pawred.png" height="20px" width="20px" />
 							</span>
 						</Form.Label>
 						<Form.Control
@@ -170,9 +170,9 @@ export default function Register(props) {
 					</Form.Group>
 					<Form.Group size="lg" controlId="petBreed">
 						<Form.Label>
-							My breed
+							My breed{" "}
 							<span style={{ color: "red" }}>
-								<b> *</b>
+								<img src="pawred.png" height="20px" width="20px" />
 							</span>
 						</Form.Label>
 						<Form.Control
@@ -183,9 +183,9 @@ export default function Register(props) {
 					</Form.Group>
 					<Form.Group size="lg" controlId="petSex">
 						<Form.Label>
-							My sex
+							My sex{" "}
 							<span style={{ color: "red" }}>
-								<b> *</b>
+								<img src="pawred.png" height="20px" width="20px" />
 							</span>
 						</Form.Label>
 						<Form.Control
@@ -201,7 +201,12 @@ export default function Register(props) {
 						</Form.Control>
 					</Form.Group>
 					<Form.Group size="lg" controlId="petColor">
-						<Form.Label>My color</Form.Label>
+						<Form.Label>
+							My color{" "}
+							<span style={{ color: "red" }}>
+								<img src="pawgrey.png" height="20px" width="20px" />
+							</span>
+						</Form.Label>
 						<Form.Control
 							type="text"
 							value={petColor}
@@ -209,7 +214,12 @@ export default function Register(props) {
 						/>
 					</Form.Group>
 					<Form.Group size="lg" controlId="petWeight">
-						<Form.Label>My weight</Form.Label>
+						<Form.Label>
+							My weight{" "}
+							<span style={{ color: "red" }}>
+								<img src="pawgrey.png" height="20px" width="20px" />
+							</span>
+						</Form.Label>
 						<Form.Control
 							type="text"
 							value={petWeight}
@@ -217,7 +227,12 @@ export default function Register(props) {
 						/>
 					</Form.Group>
 					<Form.Group size="lg" controlId="petDiet">
-						<Form.Label>My diet</Form.Label>
+						<Form.Label>
+							My diet{" "}
+							<span style={{ color: "red" }}>
+								<img src="pawgrey.png" height="20px" width="20px" />
+							</span>
+						</Form.Label>
 						<Form.Control
 							type="text"
 							value={petDiet}
@@ -225,7 +240,12 @@ export default function Register(props) {
 						/>
 					</Form.Group>
 					<Form.Group size="lg" controlId="petToys">
-						<Form.Label>My toys</Form.Label>
+						<Form.Label>
+							My toys{" "}
+							<span style={{ color: "red" }}>
+								<img src="pawgrey.png" height="20px" width="20px" />
+							</span>
+						</Form.Label>
 						<Form.Control
 							type="text"
 							value={petToys}
@@ -233,7 +253,12 @@ export default function Register(props) {
 						/>
 					</Form.Group>
 					<Form.Group size="lg" controlId="petPersonality">
-						<Form.Label>My personality</Form.Label>
+						<Form.Label>
+							My personality{" "}
+							<span style={{ color: "red" }}>
+								<img src="pawgrey.png" height="20px" width="20px" />
+							</span>
+						</Form.Label>
 						<Form.Control
 							type="text"
 							value={petPersonality}
@@ -241,7 +266,12 @@ export default function Register(props) {
 						/>
 					</Form.Group>
 					<Form.Group size="lg" controlId="petMedical">
-						<Form.Label>My medical issues</Form.Label>
+						<Form.Label>
+							My medical issues{" "}
+							<span style={{ color: "red" }}>
+								<img src="pawgrey.png" height="20px" width="20px" />
+							</span>
+						</Form.Label>
 						<Form.Control
 							type="text"
 							value={petMedical}
@@ -249,7 +279,12 @@ export default function Register(props) {
 						/>
 					</Form.Group>
 					<Form.Group size="lg" controlId="petLikes">
-						<Form.Label>I like</Form.Label>
+						<Form.Label>
+							I like{" "}
+							<span style={{ color: "red" }}>
+								<img src="pawgrey.png" height="20px" width="20px" />
+							</span>
+						</Form.Label>
 						<Form.Control
 							type="text"
 							value={petLikes}
@@ -257,7 +292,12 @@ export default function Register(props) {
 						/>
 					</Form.Group>
 					<Form.Group size="lg" controlId="petDislikes">
-						<Form.Label>I dislike</Form.Label>
+						<Form.Label>
+							I dislike{" "}
+							<span style={{ color: "red" }}>
+								<img src="pawgrey.png" height="20px" width="20px" />
+							</span>
+						</Form.Label>
 						<Form.Control
 							type="text"
 							value={petDislikes}
@@ -282,10 +322,17 @@ export default function Register(props) {
 				</Form>
 				<p className="text-center mt-5">
 					<span style={{ color: "red" }}>
-						<b>* </b>
-					</span>
+						<img src="pawred.png" height="20px" width="20px" />
+					</span>{" "}
 					These fields are required
 				</p>
+				<p className="text-center">
+					<span style={{ color: "red" }}>
+						<img src="pawgrey.png" height="20px" width="20px" />
+					</span>{" "}
+					These fields are not required
+				</p>
+
 				<p style={{ color: "red", textAlign: "center", marginTop: "10px" }}>
 					{" "}
 					{error}{" "}

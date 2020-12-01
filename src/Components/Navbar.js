@@ -15,6 +15,7 @@ export default function Navbar_First() {
 			<Navbar.Brand href="/" style={{ color: "white" }}>
 				Yappy Pets
 			</Navbar.Brand>
+			<img src="pawgrey.png" height="40px" width="40px" />
 		</Navbar>
 	);
 }

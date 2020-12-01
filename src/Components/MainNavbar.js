@@ -11,18 +11,13 @@ export default function MainNavbar() {
 			expand="lg"
 			style={{ backgroundColor: "#d90429", border: "none" }}
 		>
-			<Navbar.Brand href="#home">
-				<img
-					src="logopng.png"
-					width="40"
-					height="40"
-					className="d-inline-block align-top"
-					alt="YappyPets"
-				/>
+			<Navbar.Brand href="/">
+				<img src="pawgrey.png" height="40px" width="40px" />
 			</Navbar.Brand>
-			<Navbar.Brand href="#home" style={{ color: "white" }}>
+			<Navbar.Brand href="/" style={{ color: "white" }}>
 				Yappy Pets
 			</Navbar.Brand>
+
 			<Navbar.Toggle aria-controls="basic-navbar-nav" />
 
 			<Navbar.Collapse id="basic-navbar-nav">
