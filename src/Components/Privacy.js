@@ -66,6 +66,12 @@ export default function Privacy() {
 					3. Q. Can I make a profile for wild animals?<br></br>
 					A. Yes, if it is under watch or care.<br></br>
 				</p>
+				<h1 style={{ color: "red" }}>Contact:</h1>
+				<p>
+					11 West Horizon Ridge Pkwy Henderson, NV 89012 <br></br>
+					YappyPetsHelp@gmail.com<br></br>
+					yappypets.com
+				</p>
 			</Container>
 		</>
 	);
