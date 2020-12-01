@@ -47,7 +47,7 @@ export default function Login(props) {
 				</h1>
 				<h5 style={{ textAlign: "center" }} className="mb-5">
 					{" "}
-					Your pet's social platform.{" "}
+					The pets social platform.{" "}
 				</h5>
 				<Form onSubmit={handleSubmit}>
 					<Form.Group size="lg" controlId="email">

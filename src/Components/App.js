@@ -10,6 +10,7 @@ import { useState, useEffect } from "react";
 import Register from "./Register";
 import MainPage from "./MainPage";
 import Profile from "./Profile";
+import Privacy from "./Privacy";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 const axios = require("axios").default;
@@ -34,34 +35,59 @@ function App() {
 	if (sessionID === undefined || isValid === false) {
 		if (pageLogin === true)
 			return (
-				<div className="App">
-					<Navbar_First />
-					<>
-						<Login />
-						<Container className="text-center">
-							<p>
-								If you don't have an account &nbsp;
-								<Button
-									style={{ backgroundColor: "#d90429", border: "none" }}
-									onClick={() => {
-										setPageLogin(false);
-									}}
-								>
-									Sign Up
-								</Button>
-							</p>
-						</Container>
-					</>
-				</div>
+				<Router>
+					<Switch>
+						<Route path="/privacy">
+							<Privacy />
+						</Route>
+						<Route path="/">
+							<div className="App">
+								<Navbar_First />
+								<>
+									<Login />
+									<Container className="text-center">
+										<p>
+											If you don't have an account &nbsp;
+											<Button
+												style={{ backgroundColor: "#d90429", border: "none" }}
+												onClick={() => {
+													setPageLogin(false);
+												}}
+											>
+												Sign Up
+											</Button>
+										</p>
+										<a
+											href="/privacy"
+											className="text-center"
+											style={{ textAlign: "center" }}
+										>
+											Privacy
+										</a>
+									</Container>
+								</>
+							</div>
+						</Route>
+					</Switch>
+				</Router>
 			);
 		else
 			return (
-				<div className="App">
-					<Navbar_First />
-					<>
-						<Register />
-					</>
-				</div>
+				<Router>
+					<Switch>
+						<Route path="/privacy">
+							<Privacy />
+						</Route>
+						<Route path="/">
+							<div className="App">
+								<Navbar_First />
+								<>
+									<Register />
+								</>
+							</div>
+						</Route>
+					</Switch>
+				</Router>
 			);
 	} else if (isValid === undefined) return <div className="App"></div>;
 	else {
@@ -70,6 +96,9 @@ function App() {
 				<Switch>
 					<Route path="/myprofile">
 						<Profile />
+					</Route>
+					<Route path="/privacy">
+						<Privacy />
 					</Route>
 					<Route path="/">
 						<MainPage />

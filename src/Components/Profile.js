@@ -15,12 +15,13 @@ export default function Profile() {
 				ind: 0,
 				email: userEmail,
 				id: userID,
-				name: fullName,
+				fullname: fullName,
 				animal: animal,
 			})
 			.then(function (response) {
 				if (response.data.reason === undefined) {
 					console.log(response);
+					window.location.reload(false);
 				}
 			})
 			.catch(function (error) {
@@ -116,7 +117,7 @@ export default function Profile() {
 								/>
 							</Form.Group>
 							<Form.Group size="lg" controlId="name">
-								<Form.Label>Pet's Name</Form.Label>
+								<Form.Label>My name</Form.Label>
 								<Form.Control
 									type="text"
 									value={animal.name}
@@ -127,7 +128,7 @@ export default function Profile() {
 								/>
 							</Form.Group>
 							<Form.Group size="lg" controlId="date">
-								<Form.Label>Pet's Date of Birth</Form.Label>
+								<Form.Label>My date of Birth</Form.Label>
 								<Form.Control
 									type="date"
 									value={animal.date}
@@ -137,7 +138,7 @@ export default function Profile() {
 								/>
 							</Form.Group>
 							<Form.Group size="lg" controlId="Breed">
-								<Form.Label>Pet's Breed</Form.Label>
+								<Form.Label>My breed</Form.Label>
 								<Form.Control
 									type="text"
 									value={animal.breed}
@@ -147,7 +148,7 @@ export default function Profile() {
 								/>
 							</Form.Group>
 							<Form.Group size="lg" controlId="Sex">
-								<Form.Label>Pet's Sex</Form.Label>
+								<Form.Label>My sex</Form.Label>
 								<Form.Control
 									type="text"
 									value={animal.sex}
@@ -157,7 +158,7 @@ export default function Profile() {
 								/>
 							</Form.Group>
 							<Form.Group size="lg" controlId="Color">
-								<Form.Label>Pet's Color</Form.Label>
+								<Form.Label>My color</Form.Label>
 								<Form.Control
 									type="text"
 									value={animal.color}
@@ -167,7 +168,7 @@ export default function Profile() {
 								/>
 							</Form.Group>
 							<Form.Group size="lg" controlId="Weight">
-								<Form.Label>Pet's Weight</Form.Label>
+								<Form.Label>My weight</Form.Label>
 								<Form.Control
 									type="text"
 									value={animal.weight}
@@ -177,7 +178,7 @@ export default function Profile() {
 								/>
 							</Form.Group>
 							<Form.Group size="lg" controlId="Diet">
-								<Form.Label>Pet's Diet</Form.Label>
+								<Form.Label>My diet</Form.Label>
 								<Form.Control
 									type="text"
 									value={animal.diet}
@@ -187,7 +188,7 @@ export default function Profile() {
 								/>
 							</Form.Group>
 							<Form.Group size="lg" controlId="Toys">
-								<Form.Label>Pet's Toys</Form.Label>
+								<Form.Label>My toys</Form.Label>
 								<Form.Control
 									type="text"
 									value={animal.toys}
@@ -197,7 +198,7 @@ export default function Profile() {
 								/>
 							</Form.Group>
 							<Form.Group size="lg" controlId="Personality">
-								<Form.Label>Pet's Personality</Form.Label>
+								<Form.Label>My personality</Form.Label>
 								<Form.Control
 									type="text"
 									value={animal.personality}
@@ -207,7 +208,7 @@ export default function Profile() {
 								/>
 							</Form.Group>
 							<Form.Group size="lg" controlId="Medical">
-								<Form.Label>Pet's Medical Issues</Form.Label>
+								<Form.Label>My medical Issues</Form.Label>
 								<Form.Control
 									type="text"
 									value={animal.medical}
@@ -217,7 +218,7 @@ export default function Profile() {
 								/>
 							</Form.Group>
 							<Form.Group size="lg" controlId="Likes">
-								<Form.Label>Pet likes</Form.Label>
+								<Form.Label>I like</Form.Label>
 								<Form.Control
 									type="text"
 									value={animal.likes}
@@ -227,7 +228,7 @@ export default function Profile() {
 								/>
 							</Form.Group>
 							<Form.Group size="lg" controlId="Dislikes">
-								<Form.Label>Pet dislikes</Form.Label>
+								<Form.Label>I dislike</Form.Label>
 								<Form.Control
 									type="text"
 									value={animal.dislikes}
@@ -258,6 +259,9 @@ export default function Profile() {
 						<Container className="text-center">
 							<p>Yappy Pets 2020</p>
 						</Container>
+						<a href="/privacy" className="text-center">
+							Privacy
+						</a>
 					</div>
 				</Container>
 			</>
