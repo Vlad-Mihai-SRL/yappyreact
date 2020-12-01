@@ -13,12 +13,15 @@ export default function MainNavbar() {
 		>
 			<Navbar.Brand href="#home">
 				<img
-					src="6.png"
-					width="70"
-					height="70"
+					src="logopng.png"
+					width="40"
+					height="40"
 					className="d-inline-block align-top"
 					alt="YappyPets"
 				/>
+			</Navbar.Brand>
+			<Navbar.Brand href="#home" style={{ color: "white" }}>
+				Yappy Pets
 			</Navbar.Brand>
 			<Navbar.Toggle aria-controls="basic-navbar-nav" />
 

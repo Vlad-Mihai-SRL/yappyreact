@@ -4,6 +4,8 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import MainNavbar from "./MainNavbar";
+import "./Profile.css";
+import { Upload } from "react-bootstrap-icons";
 const axios = require("axios").default;
 
 export default function Profile() {
@@ -13,11 +15,12 @@ export default function Profile() {
 				ind: 0,
 				email: userEmail,
 				id: userID,
+				name: fullName,
 				animal: animal,
 			})
 			.then(function (response) {
 				if (response.data.reason === undefined) {
-					window.location.reload(false);
+					console.log(response);
 				}
 			})
 			.catch(function (error) {
@@ -28,12 +31,14 @@ export default function Profile() {
 
 	const [loaded, setLoaded] = useState(false);
 	const [animal, setAnimal] = useState({ name: "" });
+	const [fullName, setFullName] = useState("");
 	function getByEmail(email) {
 		axios
 			.get("http://35.195.94.48:8080/api/fetch-user/" + email)
 			.then((response) => {
 				console.log(response);
 				setLoaded(true);
+				setFullName(response.data.fullname);
 				setAnimal(response.data.pets[0]);
 			});
 	}
@@ -71,7 +76,7 @@ export default function Profile() {
 			<>
 				<MainNavbar />
 				<Container className="pl-5 pr-5">
-					<div className="Login mt-5 text-center">
+					<div className="Login mt-0 mb-3 text-center ">
 						<img
 							src={
 								"http://35.195.94.48:8080/public/users/" +
@@ -81,15 +86,37 @@ export default function Profile() {
 							style={{ height: "15vh", width: "15vh", borderRadius: "50%" }}
 						/>
 						<br></br>
-						<label> Change profile picture</label>
+
 						<br></br>
-						<input type="file" name="file" onChange={handleChange} />
-						<h5 style={{ textAlign: "center" }} className="mb-3 mt-3">
+						<input
+							type="file"
+							name="file"
+							id="file"
+							onChange={handleChange}
+							className="inputfile"
+						/>
+						<label for="file" className="mt-0">
+							{" "}
+							<Upload size={25} />
+							<br></br>
+							Change your profile picture
+						</label>
+						<h5 style={{ textAlign: "center" }} className="mt-3">
 							{animal.name}
 						</h5>
 						<Form onSubmit={handleSubmit}>
+							<Form.Group size="lg" controlId="fullName">
+								<Form.Label>Owner's Full Name</Form.Label>
+								<Form.Control
+									type="text"
+									value={fullName}
+									onChange={(e) => {
+										setFullName(e.target.value);
+									}}
+								/>
+							</Form.Group>
 							<Form.Group size="lg" controlId="name">
-								<Form.Label>Name</Form.Label>
+								<Form.Label>Pet's Name</Form.Label>
 								<Form.Control
 									type="text"
 									value={animal.name}
@@ -100,7 +127,7 @@ export default function Profile() {
 								/>
 							</Form.Group>
 							<Form.Group size="lg" controlId="date">
-								<Form.Label>Date of Birth</Form.Label>
+								<Form.Label>Pet's Date of Birth</Form.Label>
 								<Form.Control
 									type="date"
 									value={animal.date}
@@ -110,7 +137,7 @@ export default function Profile() {
 								/>
 							</Form.Group>
 							<Form.Group size="lg" controlId="Breed">
-								<Form.Label>Breed</Form.Label>
+								<Form.Label>Pet's Breed</Form.Label>
 								<Form.Control
 									type="text"
 									value={animal.breed}
@@ -120,7 +147,7 @@ export default function Profile() {
 								/>
 							</Form.Group>
 							<Form.Group size="lg" controlId="Sex">
-								<Form.Label>Sex</Form.Label>
+								<Form.Label>Pet's Sex</Form.Label>
 								<Form.Control
 									type="text"
 									value={animal.sex}
@@ -130,7 +157,7 @@ export default function Profile() {
 								/>
 							</Form.Group>
 							<Form.Group size="lg" controlId="Color">
-								<Form.Label>Color</Form.Label>
+								<Form.Label>Pet's Color</Form.Label>
 								<Form.Control
 									type="text"
 									value={animal.color}
@@ -140,7 +167,7 @@ export default function Profile() {
 								/>
 							</Form.Group>
 							<Form.Group size="lg" controlId="Weight">
-								<Form.Label>Weight</Form.Label>
+								<Form.Label>Pet's Weight</Form.Label>
 								<Form.Control
 									type="text"
 									value={animal.weight}
@@ -150,7 +177,7 @@ export default function Profile() {
 								/>
 							</Form.Group>
 							<Form.Group size="lg" controlId="Diet">
-								<Form.Label>Diet</Form.Label>
+								<Form.Label>Pet's Diet</Form.Label>
 								<Form.Control
 									type="text"
 									value={animal.diet}
@@ -160,7 +187,7 @@ export default function Profile() {
 								/>
 							</Form.Group>
 							<Form.Group size="lg" controlId="Toys">
-								<Form.Label>Toys</Form.Label>
+								<Form.Label>Pet's Toys</Form.Label>
 								<Form.Control
 									type="text"
 									value={animal.toys}
@@ -170,7 +197,7 @@ export default function Profile() {
 								/>
 							</Form.Group>
 							<Form.Group size="lg" controlId="Personality">
-								<Form.Label>Personality</Form.Label>
+								<Form.Label>Pet's Personality</Form.Label>
 								<Form.Control
 									type="text"
 									value={animal.personality}
@@ -180,7 +207,7 @@ export default function Profile() {
 								/>
 							</Form.Group>
 							<Form.Group size="lg" controlId="Medical">
-								<Form.Label>Medical</Form.Label>
+								<Form.Label>Pet's Medical Issues</Form.Label>
 								<Form.Control
 									type="text"
 									value={animal.medical}
@@ -190,7 +217,7 @@ export default function Profile() {
 								/>
 							</Form.Group>
 							<Form.Group size="lg" controlId="Likes">
-								<Form.Label>Likes</Form.Label>
+								<Form.Label>Pet likes</Form.Label>
 								<Form.Control
 									type="text"
 									value={animal.likes}
@@ -200,7 +227,7 @@ export default function Profile() {
 								/>
 							</Form.Group>
 							<Form.Group size="lg" controlId="Dislikes">
-								<Form.Label>Dislikes</Form.Label>
+								<Form.Label>Pet dislikes</Form.Label>
 								<Form.Control
 									type="text"
 									value={animal.dislikes}
