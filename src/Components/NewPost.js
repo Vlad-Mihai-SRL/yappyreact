@@ -34,6 +34,7 @@ export default function NewPost() {
 			.then((response) => {
 				if (response.data.reason === undefined) {
 					console.log(response);
+					window.location.reload(false);
 				} else {
 					console.log(response);
 					console.log("error");
