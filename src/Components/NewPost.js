@@ -7,7 +7,6 @@ import Form from "react-bootstrap/Form";
 import { useState } from "react";
 import { Upload } from "react-bootstrap-icons";
 import Cookies from "js-cookie";
-
 import "./NewPost.css";
 const axios = require("axios").default;
 export default function NewPost() {
