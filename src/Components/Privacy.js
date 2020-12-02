@@ -8,7 +8,7 @@ export default function Privacy() {
 			<Container className="mt-3 pl-5 pr-5">
 				<h1 style={{ color: "red" }}> About </h1>
 				<p>
-					Yappy Pets is a profile platform designed for pets only with the goal
+					Yappy Pets is a profile platform designed for pets only, with the goal
 					to help change the world one pet at a time This guide provides useful
 					tips and guidelines on getting the best from the Yappy Pets platform.
 					Rregistered pets can share pages, groups, profile stories, photos and
@@ -17,13 +17,14 @@ export default function Privacy() {
 					on how to get better care. At the Yappy Pets platform, we are
 					constantly evolving, solving problems and working together to connect
 					pets all over the world through our apps and technologies. Yappy Pets
-					is located in Henderson, Nevada USA. Have fun and enjoy with Yappy
-					Pets.
+					is located in Henderson, Nevada USA. <br></br>Have fun and enjoy with
+					Yappy Pets.
 				</p>
 				<h1 style={{ color: "red" }}> How to Register </h1>
 				<p>
-					All fields with * must be filled. The picture on the profile should be
-					square to maintain the proportions.
+					All fields with <img src="pawred.png" height="20px" width="20px" />{" "}
+					must be filled. The picture on the profile should be square to
+					maintain the proportions.
 				</p>
 				<h1 style={{ color: "red" }}>Create Page</h1>
 				<p>

@@ -12,7 +12,7 @@ export default function MainNavbar() {
 			style={{ backgroundColor: "#d90429", border: "none" }}
 		>
 			<Navbar.Brand href="/">
-				<img src="pawgrey.png" height="40px" width="40px" />
+				<img src="logopng.png" height="40px" width="40px" />
 			</Navbar.Brand>
 			<Navbar.Brand href="/" style={{ color: "white" }}>
 				Yappy Pets

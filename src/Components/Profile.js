@@ -15,6 +15,7 @@ export default function Profile() {
 				ind: 0,
 				email: userEmail,
 				id: userID,
+				ownerdate: ownerDate,
 				fullname: fullName,
 				animal: animal,
 			})
@@ -31,6 +32,7 @@ export default function Profile() {
 	}
 
 	const [loaded, setLoaded] = useState(false);
+	const [ownerDate, setOwnerDate] = useState("");
 	const [animal, setAnimal] = useState({ name: "" });
 	const [fullName, setFullName] = useState("");
 	function getByEmail(email) {
@@ -40,6 +42,7 @@ export default function Profile() {
 				console.log(response);
 				setLoaded(true);
 				setFullName(response.data.fullname);
+				setOwnerDate(response.data.ownerdate);
 				setAnimal(response.data.pets[0]);
 			});
 	}
@@ -128,6 +131,16 @@ export default function Profile() {
 								/>
 							</Form.Group>
 							<Form.Group size="lg" controlId="date">
+								<Form.Label>Owner's Date of Birth</Form.Label>
+								<Form.Control
+									type="date"
+									value={ownerDate}
+									onChange={(e) => {
+										setOwnerDate(e.target.value);
+									}}
+								/>
+							</Form.Group>
+							<Form.Group size="lg" controlId="date">
 								<Form.Label>My date of Birth</Form.Label>
 								<Form.Control
 									type="date"
@@ -136,6 +149,29 @@ export default function Profile() {
 										setAnimal({ ...animal, date: e.target.value });
 									}}
 								/>
+							</Form.Group>
+							<Form.Group size="lg" controlId="petSpecies">
+								<Form.Label>My species </Form.Label>
+								<Form.Control
+									as="select"
+									value={animal.species}
+									onChange={(e) => {
+										setAnimal({ ...animal, species: e.target.value });
+									}}
+								>
+									<option>Alpaca</option> <option>Bird</option>{" "}
+									<option>Cat</option> <option>Dog</option>{" "}
+									<option>Ferret</option> <option>Fish</option>{" "}
+									<option>Frog</option> <option>Gecko</option>
+									<option>Hedgehog</option> <option>Hermit</option>{" "}
+									<option>Crab</option> <option>Horse</option>{" "}
+									<option>Iguana</option> <option>Mantis</option>{" "}
+									<option>Mouse</option> <option>Newt</option>{" "}
+									<option>Pig</option> <option>Rabbit</option>
+									<option>Salamander</option> <option>Sheep</option>{" "}
+									<option>Snake</option> <option>Spider</option>{" "}
+									<option>Turtle</option> <option>Other</option>
+								</Form.Control>
 							</Form.Group>
 							<Form.Group size="lg" controlId="Breed">
 								<Form.Label>My breed</Form.Label>
@@ -156,6 +192,22 @@ export default function Profile() {
 										setAnimal({ ...animal, sex: e.target.value });
 									}}
 								/>
+							</Form.Group>
+							<Form.Group size="lg" controlId="bodyType">
+								<Form.Label>My body type shape </Form.Label>
+								<Form.Control
+									as="select"
+									value={animal.body}
+									onChange={(e) => {
+										setAnimal({ ...animal, body: e.target.value });
+									}}
+								>
+									<option>Very Thin</option>
+									<option> Underweight </option>
+									<option> Ideal </option>
+									<option> Overweight </option>
+									<option> Obese </option>
+								</Form.Control>
 							</Form.Group>
 							<Form.Group size="lg" controlId="Color">
 								<Form.Label>My color</Form.Label>
