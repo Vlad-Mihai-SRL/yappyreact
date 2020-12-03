@@ -16,8 +16,8 @@ const userID = Cookies.get("sessionID");
 export default function Comment(props) {
 	return (
 		<>
-			<Card style={{ backgroundColor: "whitesmoke" }} className="m-1">
-				<Card.Body>
+			<Card style={{ backgroundColor: "whitesmoke" }} className="m-1 p-0">
+				<Card.Body className="p-2 m-0">
 					<b>{props.petname}</b>: {props.content}
 				</Card.Body>
 			</Card>

@@ -22,8 +22,13 @@ export default function PostCard(props) {
 	const [stateComments, setStateComments] = useState([]);
 	const [errorText, setErrorText] = useState("");
 	const [commentsCards, setCommentsCards] = useState([]);
-	const [lastInd, setLastInd] = useState(1);
+	const [lastInd, setLastInd] = useState(0);
+	const [srce, setSrce] = useState("");
+	if (srce === "" && likeArray.includes(userEmail) === true)
+		setSrce("paw1.png");
+	else if (srce === "") setSrce("paw2.png");
 	function likePost() {
+		setSrce("paw1.png");
 		Axios.post("http://35.195.94.48:8080/api/like-post", {
 			postid: props._id,
 			sessionid: userID,
@@ -37,7 +42,14 @@ export default function PostCard(props) {
 		});
 	}
 	function sendComment(event) {
-		props.commentArray.push({ petname: userPetName, content: comment });
+		var aux = stateComments;
+		aux.splice(0, 0, { petname: userPetName, content: comment });
+		setStateComments(aux);
+		setCommentsCards(
+			stateComments.map((val) => (
+				<Comment content={val.content} petname={val.petname} />
+			))
+		);
 		Axios.post("http://35.195.94.48:8080/api/add-comment", {
 			postid: props._id,
 			sessionid: userID,
@@ -54,23 +66,27 @@ export default function PostCard(props) {
 		event.preventDefault();
 	}
 	function showMore() {
+		console.log(stateComments);
 		var auxArray = stateComments;
 		var i;
 		console.log(lastInd);
+		var auxLast = lastInd;
 		if (props.commentArray[lastInd] !== undefined) {
 			for (i = 0; i <= 4; i++) {
-				if (props.commentArray[lastInd + i] !== undefined)
+				if (props.commentArray[lastInd + i] !== undefined) {
 					auxArray.push(props.commentArray[lastInd + i]);
+					auxLast++;
+				}
 			}
-			setLastInd(lastInd + 5);
+			setLastInd(auxLast);
 			console.log(auxArray);
 			setStateComments(auxArray);
-			setCommentsCards(
-				stateComments.map((val) => (
-					<Comment content={val.content} petname={val.petname} />
-				))
-			);
 		} else setErrorText("No more comments");
+		setCommentsCards(
+			stateComments.map((val) => (
+				<Comment content={val.content} petname={val.petname} />
+			))
+		);
 	}
 	var imgstring =
 		"http://35.195.94.48:8080/public/users/" +
@@ -95,20 +111,17 @@ export default function PostCard(props) {
 					<Card.Body>
 						<Card.Title>{props.petname}</Card.Title>
 						<Card.Text>{props.content}</Card.Text>
-						{likeArray.includes(userEmail) ? (
-							<Button variant="danger" className="mr-1" onClick={likePost}>
-								{nrLikesStateful} Like
-							</Button>
-						) : (
-							<Button
-								variant="danger"
-								className="mr-1"
+
+						<>
+							<img
+								src={srce}
 								onClick={likePost}
-								style={{ opacity: 0.8 }}
-							>
-								{nrLikesStateful} Like
-							</Button>
-						)}
+								style={{ cursor: "pointer" }}
+								height="50px"
+							/>
+							<p>{nrLikesStateful} Likes</p>
+						</>
+
 						<Form onSubmit={sendComment}>
 							<Form.Group size="lg" className="mt-3">
 								<Form.Label>
@@ -132,15 +145,7 @@ export default function PostCard(props) {
 							</Button>
 						</Form>
 					</Card.Body>
-					<p class="text-center mt-1">Top comment:</p>
-					{props.commentArray[0] === undefined ? (
-						<p> No comments yet :) </p>
-					) : (
-						<Comment
-							content={props.commentArray[0].content}
-							petname={props.commentArray[0].petname}
-						/>
-					)}
+
 					{commentsCards}
 					<Button onClick={showMore} variant="danger" className="m-1">
 						{" "}
@@ -191,15 +196,7 @@ export default function PostCard(props) {
 						</Button>
 					</Form>
 				</Card.Body>
-				<p class="text-center mt-1">Top comment:</p>
-				{props.commentArray[0] === undefined ? (
-					<p> No comments yet :) </p>
-				) : (
-					<Comment
-						content={props.commentArray[0].content}
-						petname={props.commentArray[0].petname}
-					/>
-				)}
+
 				{commentsCards}
 				<Button onClick={showMore} variant="danger" className="m-1">
 					{" "}
