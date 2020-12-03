@@ -43,6 +43,8 @@ export default function Feed() {
 							type={val.typesx}
 							nrlikes={val.nrlikes}
 							likeArray={val.likes}
+							petname={val.petname}
+							commentArray={val.comments}
 							_id={val._id}
 						/>
 					))}

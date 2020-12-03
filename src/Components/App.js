@@ -12,7 +12,8 @@ import MainPage from "./MainPage";
 import Profile from "./Profile";
 import Privacy from "./Privacy";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-
+const sessionID = Cookies.get("sessionID");
+const userMail = Cookies.get("userEmail");
 const axios = require("axios").default;
 
 function App() {
@@ -26,8 +27,7 @@ function App() {
 				else changeValid(false);
 			});
 	}
-	const sessionID = Cookies.get("sessionID");
-	const userMail = Cookies.get("userEmail");
+
 	if (sessionID !== undefined) isValidated(sessionID, userMail);
 	console.log(sessionID, userMail);
 	console.log(isValid);

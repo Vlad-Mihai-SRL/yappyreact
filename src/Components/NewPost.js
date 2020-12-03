@@ -8,13 +8,17 @@ import { useState } from "react";
 import { Upload } from "react-bootstrap-icons";
 import Cookies from "js-cookie";
 import "./NewPost.css";
+import ReactPlayer from "react-player/lazy";
+
 const axios = require("axios").default;
 export default function NewPost() {
 	const userEmail = Cookies.get("userEmail");
 	const userID = Cookies.get("sessionID");
+	const petname = Cookies.get("petname");
 	const [post, setPost] = useState({ typesx: "Photo", content: "" });
 	const [image, setImage] = useState();
-	var x;
+	const [previewURL, setPreviewURL] = useState();
+	const [x, setX] = useState();
 	function handleSubmit(event) {
 		console.log(event);
 		const formData = new FormData();
@@ -24,6 +28,7 @@ export default function NewPost() {
 		formData.append("typesx", post.typesx);
 		formData.append("content", post.description);
 		formData.append("ind", 0);
+		formData.append("petname", petname);
 		console.log(post.typesx);
 		axios
 			.post("http://35.195.94.48:8080/api/add-post", formData, {
@@ -43,7 +48,8 @@ export default function NewPost() {
 		event.preventDefault();
 	}
 	function handleChange(event) {
-		x = event.target.files[0];
+		setX(event.target.files[0]);
+		setPreviewURL(URL.createObjectURL(event.target.files[0]));
 	}
 	return (
 		<>
@@ -85,7 +91,17 @@ export default function NewPost() {
 									}}
 								/>
 							</Form.Group>
-
+							{post.typesx === "Photo" ? (
+								<img src={previewURL} width="50%" className="m-2" />
+							) : (
+								<ReactPlayer
+									className="ml-auto mr-auto mt-2 mb-2"
+									width="100%"
+									url={previewURL}
+									controls="true"
+									loop="true"
+								/>
+							)}
 							<Form.Group>
 								<Form.File
 									type="file"

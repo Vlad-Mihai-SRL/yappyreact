@@ -22,6 +22,7 @@ export default function Profile() {
 			.then(function (response) {
 				if (response.data.reason === undefined) {
 					console.log(response);
+					Cookies.set("petname", animal.name);
 					window.location.reload(false);
 				}
 			})

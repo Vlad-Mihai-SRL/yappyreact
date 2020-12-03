@@ -29,7 +29,13 @@ export default function Login(props) {
 				} else {
 					Cookies.set("sessionID", response.data.id);
 					Cookies.set("userEmail", email);
-					window.location.reload(false);
+					axios
+						.get("http://35.195.94.48:8080/api/fetch-user/" + email)
+						.then((response) => {
+							Cookies.set("petname", response.data.pets[0].name);
+							console.log(response);
+							window.location.reload(false);
+						});
 				}
 			})
 			.catch(function (error) {

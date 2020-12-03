@@ -4,6 +4,8 @@ import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
+import Axios from "axios";
+
 export default function MainNavbar() {
 	return (
 		<Navbar
@@ -36,6 +38,7 @@ export default function MainNavbar() {
 					onClick={() => {
 						Cookies.remove("sessionID");
 						Cookies.remove("userEmail");
+						Cookies.remove("petname");
 						window.location.reload(false);
 					}}
 				>
