@@ -9,13 +9,16 @@ import { Upload } from "react-bootstrap-icons";
 import Cookies from "js-cookie";
 import "./NewPost.css";
 import ReactPlayer from "react-player/lazy";
-
 const axios = require("axios").default;
 export default function NewPost() {
 	const userEmail = Cookies.get("userEmail");
 	const userID = Cookies.get("sessionID");
 	const petname = Cookies.get("petname");
-	const [post, setPost] = useState({ typesx: "Photo", content: "" });
+	const [post, setPost] = useState({
+		typesx: "Photo",
+		content: "",
+		description: "",
+	});
 	const [image, setImage] = useState();
 	const [previewURL, setPreviewURL] = useState();
 	const [x, setX] = useState();
@@ -65,7 +68,7 @@ export default function NewPost() {
 								<Form.Label>Post type</Form.Label>
 								<Form.Control
 									as="select"
-									className="text-center ml-auto mr-auto"
+									className="text-center ml-auto mr-auto mb-0 mt-0"
 									value={post.typesx}
 									style={{ textAlign: "center", width: "30%" }}
 									onChange={(e) => {
@@ -77,7 +80,7 @@ export default function NewPost() {
 									<option className="text-center"> Video </option>
 								</Form.Control>
 							</Form.Group>
-							<Form.Group size="lg" controlId="name">
+							<Form.Group size="lg" controlId="name" className="m-0">
 								<Form.Label>Post description</Form.Label>
 								<Form.Control
 									type="text"
@@ -124,7 +127,6 @@ export default function NewPost() {
 
 						<Card.Text>Click post when you finished!</Card.Text>
 					</Card.Body>
-					<Card.Footer className="text-muted">Yappy Pets</Card.Footer>
 				</Card>
 			</Container>
 		</>

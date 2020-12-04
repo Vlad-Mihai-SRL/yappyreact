@@ -9,12 +9,14 @@ import Axios from "axios";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import FriendRequest from "./friendRequest";
+import ButtonGroup from "react-bootstrap/ButtonGroup";
 import "./MainNavbar.css";
 const userEmail = Cookies.get("userEmail");
 const userID = Cookies.get("sessionID");
 export default function MainNavbar() {
 	const [friendRequests, setFriendRequests] = useState([]);
 	const [loaded, setLoaded] = useState(false);
+	const [display, setDisplay] = useState("");
 	function getFriendRequests() {
 		if (loaded === false)
 			Axios.post("http://35.195.94.48:8080/api/get-friend-requests", {
@@ -24,6 +26,16 @@ export default function MainNavbar() {
 				console.log(response);
 				if (response.data.reason === undefined) {
 					setFriendRequests(response.data.frlist);
+
+					if (response.data.frlist.length !== 0)
+						setDisplay(
+							<img
+								src="newnotif.png"
+								height="20px"
+								className="m-0 p-0  mb-1"
+								style={{ display: "inline" }}
+							/>
+						);
 					setLoaded(true);
 				} else console.log("no reqs");
 			});
@@ -48,11 +60,32 @@ export default function MainNavbar() {
 				<Nav className="ml-auto">
 					<DropdownButton
 						id="dropdown-basic-button"
-						className="dropItem w-100"
-						size="lg"
+						className="dropItem"
+						size="md"
 						variant="light"
-						style={{ fontSize: "0.7rem" }}
-						title="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Friend Requests&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+						style={{
+							fontSize: "0.7rem",
+							backgroundColor: "white",
+							borderRadius: "10px",
+							display: "inline",
+						}}
+						title={
+							<div
+								className="ml-3 mr-3 mt-auto mb-auto"
+								style={{ display: "inline" }}
+							>
+								<div
+									className="mt-auto mb-auto"
+									style={{ display: "inline-block" }}
+								>
+									&nbsp;&nbsp;Friend Requests&nbsp;&nbsp;{" "}
+								</div>
+								<div className="mt-auto mb-auto" style={{ display: "inline" }}>
+									{display}
+								</div>
+							</div>
+						}
+						className="mt-auto mb-auto"
 					>
 						{friendRequests.map((val) => (
 							<FriendRequest sender={val.frompetname} userEmail={val.email} />
@@ -61,16 +94,23 @@ export default function MainNavbar() {
 					<Nav.Link
 						href="/"
 						style={{ color: "white" }}
-						className="mt-auto mb-auto"
+						className="mt-auto mb-auto ml-2"
 					>
 						Home
 					</Nav.Link>
 					<Nav.Link
 						href="/myprofile"
 						style={{ color: "white" }}
-						className="mt-auto mb-auto"
+						className="mt-auto mb-auto ml-2"
 					>
 						Profile
+					</Nav.Link>
+					<Nav.Link
+						href="/search"
+						style={{ color: "white" }}
+						className="mt-auto mb-auto ml-2"
+					>
+						Search
 					</Nav.Link>
 				</Nav>
 				<Button

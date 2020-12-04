@@ -109,22 +109,23 @@ export default function PostCard(props) {
 				>
 					<Card.Img variant="top" src={imgstring} />
 					<Card.Body>
-						<Card.Title>{props.petname}</Card.Title>
-						<Card.Text>{props.content}</Card.Text>
+						<Card.Title className="m-0">{props.petname}</Card.Title>
+						<Card.Text className="mb-2">{props.content}</Card.Text>
 
-						<>
+						<div className="mt-0 mb-0">
 							<img
+								className="mt-0 mb-0"
 								src={srce}
 								onClick={likePost}
 								style={{ cursor: "pointer" }}
 								height="50px"
 							/>
 							<p>{nrLikesStateful} Likes</p>
-						</>
+						</div>
 
-						<Form onSubmit={sendComment}>
-							<Form.Group size="lg" className="mt-3">
-								<Form.Label>
+						<Form onSubmit={sendComment} className="mt-0 mb-0">
+							<Form.Group size="lg" className="mt-0 mb-2">
+								<Form.Label className="mt-0 mb-0">
 									<span style={{ color: "red" }}>
 										<img src="pawred.png" height="20px" width="20px" />
 									</span>{" "}
@@ -140,14 +141,14 @@ export default function PostCard(props) {
 									onChange={(e) => setComment(e.target.value)}
 								/>
 							</Form.Group>
-							<Button variant="danger" className="ml-1" type="submit">
+							<Button variant="danger" className="ml-1 mb-0" type="submit">
 								Comment
 							</Button>
 						</Form>
 					</Card.Body>
 
 					{commentsCards}
-					<Button onClick={showMore} variant="danger" className="m-1">
+					<Button onClick={showMore} variant="danger" className="m-0">
 						{" "}
 						Show More{" "}
 					</Button>
@@ -166,12 +167,12 @@ export default function PostCard(props) {
 						width="100%"
 						url={videostring}
 						controls="true"
-						loop="true"
 					/>
-					<Card.Title>{props.petname}</Card.Title>
-					<Card.Text>{props.content}</Card.Text>
+					<Card.Title className="mt-0 mb-0">{props.petname}</Card.Title>
+					<Card.Text className="mt-0 mb-2">{props.content}</Card.Text>
 					<>
 						<img
+							className="mt-0 mb-0"
 							src={srce}
 							onClick={likePost}
 							style={{ cursor: "pointer" }}
@@ -180,7 +181,7 @@ export default function PostCard(props) {
 						<p>{nrLikesStateful} Likes</p>
 					</>
 					<Form onSubmit={sendComment}>
-						<Form.Group size="lg" className="mt-3">
+						<Form.Group size="lg" className="mt-0 mb-2">
 							<Form.Label>
 								<span style={{ color: "red" }}>
 									<img src="pawred.png" height="20px" width="20px" />
@@ -197,14 +198,14 @@ export default function PostCard(props) {
 								onChange={(e) => setComment(e.target.value)}
 							/>
 						</Form.Group>
-						<Button variant="danger" className="ml-1" type="submit">
+						<Button variant="danger" className="ml-1 mb-0" type="submit">
 							Comment
 						</Button>
 					</Form>
 				</Card.Body>
 
 				{commentsCards}
-				<Button onClick={showMore} variant="danger" className="m-1">
+				<Button onClick={showMore} variant="danger" className="m-0">
 					{" "}
 					Show More{" "}
 				</Button>

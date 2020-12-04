@@ -46,9 +46,9 @@ export default function FriendRequest(props) {
 	}
 	return (
 		<>
-			<Container fluid>
+			<Container fluid className="p-2">
 				<Row fluid className="text-center ml-auto mr-auto">
-					<Col sm="3" className="text-center">
+					<Col sm="12" className="text-center">
 						<img
 							className="ml-auto mr-auto m-0 p-0"
 							src={
@@ -59,16 +59,13 @@ export default function FriendRequest(props) {
 							style={{ height: "4vh", width: "4vh", borderRadius: "50%" }}
 						/>
 					</Col>
-				</Row>
-				<br></br>
-				<Row fluid className="text-center ml-auto mr-auto">
-					<Col sm="4" className="mt-auto mb-auto">
+					<br></br>
+					<Col sm="12" className="mt-auto mb-auto">
 						<b>{props.sender}</b>
 					</Col>
-				</Row>
-				<br></br>
-				<Row fluid className="text-center ml-auto mr-auto">
-					<Col sm="4">
+
+					<br></br>
+					<Col sm="12">
 						<Button size="md" variant="danger" onClick={acceptReq}>
 							{" "}
 							{text}{" "}
