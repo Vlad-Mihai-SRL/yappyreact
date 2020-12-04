@@ -168,11 +168,17 @@ export default function PostCard(props) {
 						controls="true"
 						loop="true"
 					/>
-					<Card.Title>{props.author}</Card.Title>
+					<Card.Title>{props.petname}</Card.Title>
 					<Card.Text>{props.content}</Card.Text>
-					<Button variant="danger" className="mr-1" onClick={likePost}>
-						{nrLikesStateful} Like
-					</Button>
+					<>
+						<img
+							src={srce}
+							onClick={likePost}
+							style={{ cursor: "pointer" }}
+							height="50px"
+						/>
+						<p>{nrLikesStateful} Likes</p>
+					</>
 					<Form onSubmit={sendComment}>
 						<Form.Group size="lg" className="mt-3">
 							<Form.Label>
