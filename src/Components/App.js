@@ -12,6 +12,8 @@ import MainPage from "./MainPage";
 import Profile from "./Profile";
 import Privacy from "./Privacy";
 import Search from "./Search";
+import Chat from "./Chat";
+import ChatWindow from "./ChatWindow";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 const sessionID = Cookies.get("sessionID");
 const userMail = Cookies.get("userEmail");
@@ -103,6 +105,10 @@ function App() {
 					</Route>
 					<Route path="/search">
 						<Search />
+					</Route>
+					<Route path="/chatwindow/:email" children={<ChatWindow />} />
+					<Route path="/chat">
+						<Chat />
 					</Route>
 					<Route path="/">
 						<MainPage />
