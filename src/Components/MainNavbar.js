@@ -30,7 +30,7 @@ export default function MainNavbar() {
 					if (response.data.frlist.length !== 0)
 						setDisplay(
 							<img
-								src="newnotif.png"
+								src="../newnotif.png"
 								height="20px"
 								className="m-0 p-0  mb-1"
 								style={{ display: "inline" }}
@@ -112,6 +112,13 @@ export default function MainNavbar() {
 					>
 						Search
 					</Nav.Link>
+					<Nav.Link
+						href="/chat"
+						style={{ color: "white" }}
+						className="mt-auto mb-auto ml-2"
+					>
+						Friends
+					</Nav.Link>
 				</Nav>
 				<Button
 					className="text-center ml-2"
@@ -121,7 +128,7 @@ export default function MainNavbar() {
 						Cookies.remove("sessionID");
 						Cookies.remove("userEmail");
 						Cookies.remove("petname");
-						window.location.reload(false);
+						window.location.href = "/";
 					}}
 				>
 					{" "}

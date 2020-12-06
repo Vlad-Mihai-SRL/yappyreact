@@ -63,6 +63,7 @@ export default function PostCard(props) {
 			}
 			console.log(response);
 		});
+		setComment("");
 		event.preventDefault();
 	}
 	function showMore() {
@@ -112,17 +113,6 @@ export default function PostCard(props) {
 						<Card.Title className="m-0">{props.petname}</Card.Title>
 						<Card.Text className="mb-2">{props.content}</Card.Text>
 
-						<div className="mt-0 mb-0">
-							<img
-								className="mt-0 mb-0"
-								src={srce}
-								onClick={likePost}
-								style={{ cursor: "pointer" }}
-								height="50px"
-							/>
-							<p>{nrLikesStateful} Likes</p>
-						</div>
-
 						<Form onSubmit={sendComment} className="mt-0 mb-0">
 							<Form.Group size="lg" className="mt-0 mb-2">
 								<Form.Label className="mt-0 mb-0">
@@ -141,9 +131,29 @@ export default function PostCard(props) {
 									onChange={(e) => setComment(e.target.value)}
 								/>
 							</Form.Group>
-							<Button variant="danger" className="ml-1 mb-0" type="submit">
-								Comment
-							</Button>
+							<Row className="ml-auto mr-auto">
+								<Col sm={6}>
+									<div className="mt-0 mb-0">
+										<img
+											className="mt-0 mb-0"
+											src={srce}
+											onClick={likePost}
+											style={{ cursor: "pointer" }}
+											height="50px"
+										/>
+										<p>{nrLikesStateful} Likes</p>
+									</div>
+								</Col>
+								<Col sm={6}>
+									<Button
+										variant="danger"
+										className="ml-1 mb-auto mt-auto"
+										type="submit"
+									>
+										Comment
+									</Button>
+								</Col>
+							</Row>
 						</Form>
 					</Card.Body>
 
@@ -170,16 +180,7 @@ export default function PostCard(props) {
 					/>
 					<Card.Title className="mt-0 mb-0">{props.petname}</Card.Title>
 					<Card.Text className="mt-0 mb-2">{props.content}</Card.Text>
-					<>
-						<img
-							className="mt-0 mb-0"
-							src={srce}
-							onClick={likePost}
-							style={{ cursor: "pointer" }}
-							height="50px"
-						/>
-						<p>{nrLikesStateful} Likes</p>
-					</>
+
 					<Form onSubmit={sendComment}>
 						<Form.Group size="lg" className="mt-0 mb-2">
 							<Form.Label>
@@ -198,9 +199,29 @@ export default function PostCard(props) {
 								onChange={(e) => setComment(e.target.value)}
 							/>
 						</Form.Group>
-						<Button variant="danger" className="ml-1 mb-0" type="submit">
-							Comment
-						</Button>
+						<Row className="ml-auto mr-auto">
+							<Col sm={6}>
+								<div className="mt-0 mb-0">
+									<img
+										className="mt-0 mb-0"
+										src={srce}
+										onClick={likePost}
+										style={{ cursor: "pointer" }}
+										height="50px"
+									/>
+									<p>{nrLikesStateful} Likes</p>
+								</div>
+							</Col>
+							<Col sm={6}>
+								<Button
+									variant="danger"
+									className="ml-1 mb-auto mt-auto"
+									type="submit"
+								>
+									Comment
+								</Button>
+							</Col>
+						</Row>
 					</Form>
 				</Card.Body>
 

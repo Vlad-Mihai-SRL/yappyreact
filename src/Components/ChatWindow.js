@@ -47,6 +47,9 @@ export default function ChatWindow() {
 		});
 		setMessage("");
 	}
+	function validateForm() {
+		return message.length > 0;
+	}
 	function getUser() {
 		Axios.get("http://35.195.94.48:8080/api/fetch-user/" + email).then(
 			(response) => {
@@ -102,7 +105,9 @@ export default function ChatWindow() {
 		getMessages();
 		getOwnUser();
 	}
-
+	function handleClick() {
+		myRef.current.scrollIntoView({ behavior: "smooth" });
+	}
 	return (
 		<Container fluid className="vh-100 m-0 p-0">
 			<MainNavbar />
@@ -158,17 +163,24 @@ export default function ChatWindow() {
 				<Form onSubmit={handleSubmit}>
 					<Row className="ml-auto mr-auto">
 						<Col sm={11}>
-							<Form.Group size="lg">
-								<Form.Control
-									autoFocus
-									type="text"
-									value={message}
-									onChange={(e) => setMessage(e.target.value)}
-								/>
-							</Form.Group>
+							<div onClick={handleClick}>
+								<Form.Group size="lg">
+									<Form.Control
+										autoFocus
+										type="text"
+										value={message}
+										onChange={(e) => setMessage(e.target.value)}
+									/>
+								</Form.Group>
+							</div>
 						</Col>
 						<Col sm={1} className="ml-auto mr-auto">
-							<Button type="submit" className="ml-auto mr-auto text-center">
+							<Button
+								type="submit"
+								className="ml-auto mr-auto text-center"
+								disabled={!validateForm()}
+								style={{ backgroundColor: "#d90429", border: "none" }}
+							>
 								{" "}
 								Send
 							</Button>

@@ -12,7 +12,7 @@ export default function MainPage() {
 		<>
 			<MainNavbar />
 			<Container>
-				<h1 className="text-center pl-5 pr-5 mt-5"> Welcome to Yappy! </h1>
+				<h1 className="text-center pl-5 pr-5 mt-5"> Welcome to Happy Pets! </h1>
 				<NewPost />
 				<Feed />
 			</Container>

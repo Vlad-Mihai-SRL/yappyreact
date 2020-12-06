@@ -90,7 +90,7 @@ export default function Register(props) {
 			<div className="Login mt-5">
 				<h1 style={{ textAlign: "center" }} className="mb-5">
 					{" "}
-					Yappy!{" "}
+					Happy Pets!{" "}
 				</h1>
 				<h5 style={{ textAlign: "center" }} className="mb-5">
 					{" "}
