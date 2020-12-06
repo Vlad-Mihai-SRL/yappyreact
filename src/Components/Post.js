@@ -94,7 +94,7 @@ export default function PostCard(props) {
 		props.userEmail +
 		"/0/" +
 		props._id +
-		".png";
+		"_min.webp";
 	var videostring =
 		"http://35.195.94.48:8080/public/users/" +
 		props.userEmail +

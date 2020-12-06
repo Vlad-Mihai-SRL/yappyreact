@@ -95,6 +95,7 @@ export default function ChatWindow() {
 				"/" +
 				email
 		).then((response) => {
+			console.log(response.data.list);
 			setMessageArray(response.data.list);
 			lastarray = response.data.list;
 			myRef.current.scrollIntoView({ behavior: "auto" });
@@ -106,7 +107,7 @@ export default function ChatWindow() {
 		getOwnUser();
 	}
 	function handleClick() {
-		myRef.current.scrollIntoView({ behavior: "smooth" });
+		myRef.current.scrollIntoView({ behavior: "auto" });
 	}
 	return (
 		<Container fluid className="vh-100 m-0 p-0">
@@ -134,17 +135,36 @@ export default function ChatWindow() {
 				}}
 			>
 				{messageArray.map((val) => {
+					let data = new Date(val.date);
 					if (val.receiver === userEmail)
 						return (
 							<>
-								<h5 style={{ textAlign: "left" }}> {receiverAnimal.name}</h5>
+								<p className="mt-auto mb-auto">
+									<strong style={{ fontSize: "1.2em" }}>
+										{receiverAnimal.name}
+									</strong>{" "}
+									<span
+										style={{ color: "grey", fontSize: "0.9em" }}
+										className="mt-auto mb-auto"
+									>
+										{data.toLocaleTimeString()}
+									</span>
+								</p>
 								<p style={{ textAlign: "left", width: "75%" }}>{val.content}</p>
 							</>
 						);
 					else
 						return (
 							<>
-								<h5 style={{ textAlign: "right" }}>{petname}</h5>
+								<p className="mt-auto mb-auto" style={{ textAlign: "right" }}>
+									<span
+										style={{ color: "grey", fontSize: "0.9em" }}
+										className="mt-auto mb-auto"
+									>
+										{data.toLocaleTimeString()}
+									</span>{" "}
+									<strong style={{ fontSize: "1.2em" }}>{petname}</strong>
+								</p>{" "}
 								<p
 									style={{
 										marginLeft: "auto",

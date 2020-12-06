@@ -15,35 +15,42 @@ function FriendCard(props) {
 	var string = "/chatwindow/" + props.email;
 	return (
 		<Container
-			className="ml-auto mr-auto text-center mt-3"
-			style={{ backgroundColor: "whitesmoke" }}
+			className="ml-auto mr-auto text-center mt-3 pt-2 pb-2"
+			style={{ backgroundColor: "whitesmoke", borderRadius: "20px" }}
 		>
-			<h5>{props.petname}</h5>
 			<Row>
-				<img
-					className="ml-auto mr-auto"
-					src={
-						"http://35.195.94.48:8080/public/users/" + props.email + "/0/pp.png"
-					}
-					height="150px"
-					style={{ height: "15vh", width: "15vh", borderRadius: "50%" }}
-				/>
-			</Row>
-			<Row>
-				<a
-					href={string}
-					className="mt-2 mb-2 ml-auto mr-auto"
-					style={{
-						backgroundColor: "#d90429",
-						color: "white",
-						padding: "5px",
-						marginTop: "10px",
-						borderRadius: "10px",
-					}}
-				>
-					{" "}
-					Chat{" "}
-				</a>
+				<Col className="mt-auto mb-auto">
+					<img
+						className="ml-auto mr-auto"
+						src={
+							"http://35.195.94.48:8080/public/users/" +
+							props.email +
+							"/0/pp.png"
+						}
+						height="100px"
+						style={{ height: "10vh", width: "10vh", borderRadius: "50%" }}
+					/>
+				</Col>
+				<Col className="mt-auto mb-auto">
+					<h5>{props.petname}</h5>
+				</Col>
+				<Col className="mt-auto mb-auto">
+					<a
+						href={string}
+						className="mt-auto mb-auto ml-auto mr-auto"
+						style={{
+							backgroundColor: "#d90429",
+							color: "white",
+							padding: "5px",
+							marginTop: "10px",
+							display: "block",
+							borderRadius: "10px",
+						}}
+					>
+						{" "}
+						Chat{" "}
+					</a>
+				</Col>
 			</Row>
 		</Container>
 	);
@@ -67,17 +74,6 @@ export default function Chat() {
 	}
 	if (loaded === false) {
 		getAllFriends();
-		Pusher.logToConsole = true;
-
-		var pusher = new Pusher("11189dc52230b411d1ea", {
-			cluster: "eu",
-		});
-
-		var channel = pusher.subscribe("coaieverzi");
-		setLoaded(true);
-		channel.bind("newmessage", function (data) {
-			console.log(JSON.stringify(data));
-		});
 	}
 
 	return (
