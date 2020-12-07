@@ -44,7 +44,7 @@ export default function Register(props) {
 			setError("The password confirmation does not match");
 		else
 			axios
-				.post("http://35.195.94.48:8080/api/add-user", {
+				.post("http://34.125.94.177:8080/api/add-user", {
 					email: email,
 					password: password,
 					fullname: fullName,

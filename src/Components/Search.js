@@ -18,7 +18,7 @@ const userPetName = Cookies.get("petname");
 function SearchCard(props) {
 	const [text, setText] = useState("Sent request");
 	function sendFriendRequest(event) {
-		Axios.post("http://35.195.94.48:8080/api/add-friend-request", {
+		Axios.post("http://34.125.94.177:8080/api/add-friend-request", {
 			fromemail: userEmail,
 			sessionid: userID,
 			fromind: "0",
@@ -38,7 +38,9 @@ function SearchCard(props) {
 			<div className="mt-auto mb-auto ml-auto mr-auto">
 				<img
 					src={
-						"http://35.195.94.48:8080/public/users/" + props.email + "/0/pp.png"
+						"http://34.125.94.177:8080/public/users/" +
+						props.email +
+						"/0/pp.png"
 					}
 					style={{ height: "15vh", width: "15vh", borderRadius: "50%" }}
 					className="ml-auto mr-auto"
@@ -62,7 +64,7 @@ export default function Search() {
 	const [foundArray, setFoundArray] = useState([]);
 	function searchForUser(event) {
 		Axios.get(
-			"http://35.195.94.48:8080/api/get-users?fullname=" +
+			"http://34.125.94.177:8080/api/get-users?fullname=" +
 				searchValue +
 				"&petname=" +
 				userPetName

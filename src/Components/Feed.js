@@ -20,7 +20,7 @@ export default function Feed() {
 
 	function getPosts() {
 		Axios.get(
-			"http://35.195.94.48:8080/api/get-feed/" + userEmail + "/" + userID
+			"http://34.125.94.177:8080/api/get-feed/" + userEmail + "/" + userID
 		).then((response) => {
 			if (response.data.reason === undefined) {
 				setPostsArray(response.data);

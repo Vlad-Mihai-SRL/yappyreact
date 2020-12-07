@@ -24,7 +24,7 @@ function App() {
 	const [pageLogin, setPageLogin] = useState(true);
 	async function isValidated(sesID, mail) {
 		axios
-			.get("http://35.195.94.48:8080/api/check-session/" + sesID + "/" + mail)
+			.get("http://34.125.94.177:8080/api/check-session/" + sesID + "/" + mail)
 			.then((response) => {
 				if (response.data.reason === undefined) changeValid(true);
 				else changeValid(false);

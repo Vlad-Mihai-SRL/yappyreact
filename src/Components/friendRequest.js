@@ -27,7 +27,7 @@ export default function FriendRequest(props) {
 			toemail: userEmail,
 			tor: "accepted",
 		});
-		Axios.post("http://35.195.94.48:8080/api/respond-to-friend-request", {
+		Axios.post("http://34.125.94.177:8080/api/respond-to-friend-request", {
 			fromemail: props.userEmail,
 			sessionid: userID,
 			fromind: "0",
@@ -52,7 +52,7 @@ export default function FriendRequest(props) {
 						<img
 							className="ml-auto mr-auto m-0 p-0"
 							src={
-								"http://35.195.94.48:8080/public/users/" +
+								"http://34.125.94.177:8080/public/users/" +
 								props.userEmail +
 								"/0/pp.png"
 							}

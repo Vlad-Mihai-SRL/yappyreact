@@ -19,7 +19,7 @@ export default function MainNavbar() {
 	const [display, setDisplay] = useState("");
 	function getFriendRequests() {
 		if (loaded === false)
-			Axios.post("http://35.195.94.48:8080/api/get-friend-requests", {
+			Axios.post("http://34.125.94.177:8080/api/get-friend-requests", {
 				sessionid: userID,
 				email: userEmail,
 			}).then((response) => {

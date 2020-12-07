@@ -23,9 +23,9 @@ function FriendCard(props) {
 					<img
 						className="ml-auto mr-auto"
 						src={
-							"http://35.195.94.48:8080/public/users/" +
+							"http://34.125.94.177:8080/public/users/" +
 							props.email +
-							"/0/pp.png"
+							"/0/pp_min.webp"
 						}
 						height="100px"
 						style={{ height: "10vh", width: "10vh", borderRadius: "50%" }}
@@ -67,7 +67,10 @@ export default function Chat() {
 	}
 	function getAllFriends() {
 		Axios.get(
-			"http://35.195.94.48:8080/api/get-friend-list/" + userID + "/" + userEmail
+			"http://34.125.94.177:8080/api/get-friend-list/" +
+				userID +
+				"/" +
+				userEmail
 		).then((response) => {
 			setFriendsArray(response.data);
 		});

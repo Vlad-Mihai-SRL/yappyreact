@@ -29,7 +29,7 @@ export default function PostCard(props) {
 	else if (srce === "") setSrce("paw2.png");
 	function likePost() {
 		setSrce("paw1.png");
-		Axios.post("http://35.195.94.48:8080/api/like-post", {
+		Axios.post("http://34.125.94.177:8080/api/like-post", {
 			postid: props._id,
 			sessionid: userID,
 			email: userEmail,
@@ -50,7 +50,7 @@ export default function PostCard(props) {
 				<Comment content={val.content} petname={val.petname} />
 			))
 		);
-		Axios.post("http://35.195.94.48:8080/api/add-comment", {
+		Axios.post("http://34.125.94.177:8080/api/add-comment", {
 			postid: props._id,
 			sessionid: userID,
 			email: userEmail,
@@ -90,13 +90,13 @@ export default function PostCard(props) {
 		);
 	}
 	var imgstring =
-		"http://35.195.94.48:8080/public/users/" +
+		"http://34.125.94.177:8080/public/users/" +
 		props.userEmail +
 		"/0/" +
 		props._id +
 		"_min.webp";
 	var videostring =
-		"http://35.195.94.48:8080/public/users/" +
+		"http://34.125.94.177:8080/public/users/" +
 		props.userEmail +
 		"/0/" +
 		props._id +

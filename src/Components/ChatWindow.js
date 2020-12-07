@@ -31,7 +31,7 @@ export default function ChatWindow() {
 	const [message, setMessage] = useState("");
 	function handleSubmit(event) {
 		event.preventDefault();
-		Axios.post("http://35.195.94.48:8080/api/add-message", {
+		Axios.post("http://34.125.94.177:8080/api/add-message", {
 			senderemail: userEmail,
 			sessionid: userID,
 			receiveremail: email,
@@ -51,7 +51,7 @@ export default function ChatWindow() {
 		return message.length > 0;
 	}
 	function getUser() {
-		Axios.get("http://35.195.94.48:8080/api/fetch-user/" + email).then(
+		Axios.get("http://34.125.94.177:8080/api/fetch-user/" + email).then(
 			(response) => {
 				setReceiverFullName(response.data.fullname);
 				if (loaded === false) {
@@ -80,7 +80,7 @@ export default function ChatWindow() {
 		// ID lui Mailul Tau
 	}
 	function getOwnUser() {
-		Axios.get("http://35.195.94.48:8080/api/fetch-user/" + userEmail).then(
+		Axios.get("http://34.125.94.177:8080/api/fetch-user/" + userEmail).then(
 			(response) => {
 				myID = response.data._id;
 			}
@@ -88,7 +88,7 @@ export default function ChatWindow() {
 	}
 	function getMessages() {
 		Axios.get(
-			"http://35.195.94.48:8080/api/get-messages/" +
+			"http://34.125.94.177:8080/api/get-messages/" +
 				userID +
 				"/" +
 				userEmail +
@@ -114,7 +114,9 @@ export default function ChatWindow() {
 			<MainNavbar />
 			<img
 				className="ml-auto mr-auto mt-3"
-				src={"http://35.195.94.48:8080/public/users/" + email + "/0/pp.png"}
+				src={
+					"http://34.125.94.177:8080/public/users/" + email + "/0/pp_min.webp"
+				}
 				height="150px"
 				style={{
 					height: "10vh",

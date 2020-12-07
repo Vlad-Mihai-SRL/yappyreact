@@ -11,7 +11,7 @@ const axios = require("axios").default;
 export default function Profile() {
 	function handleSubmit(event) {
 		axios
-			.post("http://35.195.94.48:8080/api/modify-animal", {
+			.post("http://34.125.94.177:8080/api/modify-animal", {
 				ind: 0,
 				email: userEmail,
 				id: userID,
@@ -38,7 +38,7 @@ export default function Profile() {
 	const [fullName, setFullName] = useState("");
 	function getByEmail(email) {
 		axios
-			.get("http://35.195.94.48:8080/api/fetch-user/" + email)
+			.get("http://34.125.94.177:8080/api/fetch-user/" + email)
 			.then((response) => {
 				console.log(response);
 				setLoaded(true);
@@ -57,7 +57,7 @@ export default function Profile() {
 		formData.append("ind", "0");
 		// Post the form, just make sure to set the 'Content-Type' header
 		axios
-			.post("http://35.195.94.48:8080/api/modify-profilepic", formData, {
+			.post("http://34.125.94.177:8080/api/modify-profilepic", formData, {
 				headers: {
 					"Content-Type": "multipart/form-data",
 				},
@@ -65,7 +65,9 @@ export default function Profile() {
 			.then((response) => {
 				if (response.reason === undefined) {
 					console.log(response);
-					window.location.reload(false);
+					setTimeout(() => {
+						window.location.reload(false);
+					}, 2000);
 				} else {
 					console.log("ERROR");
 				}
@@ -84,9 +86,9 @@ export default function Profile() {
 					<div className="Login mt-0 mb-3 text-center ">
 						<img
 							src={
-								"http://35.195.94.48:8080/public/users/" +
+								"http://34.125.94.177:8080/public/users/" +
 								userEmail +
-								"/0/pp.png"
+								"/0/pp_min.webp"
 							}
 							style={{ height: "15vh", width: "15vh", borderRadius: "50%" }}
 						/>
