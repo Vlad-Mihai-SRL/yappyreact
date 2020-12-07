@@ -40,7 +40,7 @@ function SearchCard(props) {
 					src={
 						"http://34.125.94.177:8080/public/users/" +
 						props.email +
-						"/0/pp.png"
+						"/0/pp_min.webp"
 					}
 					style={{ height: "15vh", width: "15vh", borderRadius: "50%" }}
 					className="ml-auto mr-auto"

@@ -54,7 +54,7 @@ export default function FriendRequest(props) {
 							src={
 								"http://34.125.94.177:8080/public/users/" +
 								props.userEmail +
-								"/0/pp.png"
+								"/0/pp_min.webp"
 							}
 							style={{ height: "4vh", width: "4vh", borderRadius: "50%" }}
 						/>
