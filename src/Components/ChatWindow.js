@@ -40,8 +40,11 @@ export default function ChatWindow() {
 			content: message,
 		}).then((response) => {
 			if (response.data.reason === undefined) {
-				setMessageArray([...lastarray, { content: message, receiver: email }]);
-				lastarray.push({ content: message, receiver: email });
+				setMessageArray([
+					...lastarray,
+					{ content: message, receiver: email, date: new Date() },
+				]);
+				lastarray.push({ content: message, receiver: email, date: new Date() });
 				myRef.current.scrollIntoView({ behavior: "smooth" });
 			}
 		});
@@ -55,7 +58,7 @@ export default function ChatWindow() {
 			(response) => {
 				setReceiverFullName(response.data.fullname);
 				if (loaded === false) {
-					var channelListen = response.data._id + userEmail;
+					var channelListen = userEmail;
 
 					Pusher.logToConsole = true;
 					var pusher = new Pusher("11189dc52230b411d1ea", {
@@ -64,12 +67,22 @@ export default function ChatWindow() {
 
 					var channel = pusher.subscribe(channelListen);
 					channel.bind("newmessage", function (data) {
-						setMessageArray([
-							...lastarray,
-							{ content: data.message, receiver: userEmail },
-						]);
-						lastarray.push({ content: data.message, receiver: userEmail });
-						myRef.current.scrollIntoView({ behavior: "smooth" });
+						if (data.sender === email) {
+							setMessageArray([
+								...lastarray,
+								{
+									content: data.message,
+									receiver: userEmail,
+									date: new Date(),
+								},
+							]);
+							lastarray.push({
+								content: data.message,
+								receiver: userEmail,
+								date: new Date(),
+							});
+							myRef.current.scrollIntoView({ behavior: "smooth" });
+						}
 					});
 				}
 				loaded = true;
