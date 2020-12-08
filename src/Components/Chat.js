@@ -13,6 +13,29 @@ const userEmail = Cookies.get("userEmail");
 const userID = Cookies.get("sessionID");
 function FriendCard(props) {
 	var string = "/chatwindow/" + props.email;
+	const [loaded, setLoaded] = useState(false);
+	const [src, setSrc] = useState("");
+	function getSeen() {
+		if (loaded === false)
+			Axios.get(
+				"http://34.125.94.177:8080/api/has-new-messages/" +
+					userID +
+					"/" +
+					userEmail +
+					"/" +
+					props.email
+			).then((response) => {
+				console.log(response);
+				setLoaded(true);
+				if (response.data.reason === undefined)
+					if (response.data.result !== "no new messages")
+						setSrc("../newnotif.png");
+			});
+	}
+	if (loaded === false) {
+		getSeen();
+		console.log("ok?");
+	}
 	return (
 		<Container
 			className="ml-auto mr-auto text-center mt-3 pt-2 pb-2"
@@ -51,6 +74,7 @@ function FriendCard(props) {
 						Chat{" "}
 					</a>
 				</Col>
+				<img src={src} style={{ width: "30px" }} />
 			</Row>
 		</Container>
 	);
