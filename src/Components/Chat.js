@@ -8,77 +8,9 @@ import Col from "react-bootstrap/Col";
 import { CaretRight } from "react-bootstrap-icons";
 import MainNavbar from "./MainNavbar";
 import Cookies from "js-cookie";
-
+import FriendCard from "./FriendCard";
 const userEmail = Cookies.get("userEmail");
 const userID = Cookies.get("sessionID");
-function FriendCard(props) {
-	var string = "/chatwindow/" + props.email;
-	const [loaded, setLoaded] = useState(false);
-	const [src, setSrc] = useState("");
-	function getSeen() {
-		if (loaded === false)
-			Axios.get(
-				"http://34.125.94.177:8080/api/has-new-messages/" +
-					userID +
-					"/" +
-					userEmail +
-					"/" +
-					props.email
-			).then((response) => {
-				console.log(response);
-				setLoaded(true);
-				if (response.data.reason === undefined)
-					if (response.data.result !== "no new messages")
-						setSrc("../newnotif.png");
-			});
-	}
-	if (loaded === false) {
-		getSeen();
-		console.log("ok?");
-	}
-	return (
-		<Container
-			className="ml-auto mr-auto text-center mt-3 pt-2 pb-2"
-			style={{ backgroundColor: "whitesmoke", borderRadius: "20px" }}
-		>
-			<Row>
-				<Col className="mt-auto mb-auto">
-					<img
-						className="ml-auto mr-auto"
-						src={
-							"http://34.125.94.177:8080/public/users/" +
-							props.email +
-							"/0/pp_min.webp"
-						}
-						height="100px"
-						style={{ height: "10vh", width: "10vh", borderRadius: "50%" }}
-					/>
-				</Col>
-				<Col className="mt-auto mb-auto">
-					<h5>{props.petname}</h5>
-				</Col>
-				<Col className="mt-auto mb-auto">
-					<a
-						href={string}
-						className="mt-auto mb-auto ml-auto mr-auto"
-						style={{
-							backgroundColor: "#d90429",
-							color: "white",
-							padding: "5px",
-							marginTop: "10px",
-							display: "block",
-							borderRadius: "10px",
-						}}
-					>
-						{" "}
-						Chat{" "}
-					</a>
-				</Col>
-				<img src={src} style={{ width: "30px" }} />
-			</Row>
-		</Container>
-	);
-}
 
 export default function Chat() {
 	const [loaded, setLoaded] = useState(false);
@@ -91,7 +23,7 @@ export default function Chat() {
 	}
 	function getAllFriends() {
 		Axios.get(
-			"http://34.125.94.177:8080/api/get-friend-list/" +
+			"http://35.190.221.195:8080/api/get-friend-list/" +
 				userID +
 				"/" +
 				userEmail

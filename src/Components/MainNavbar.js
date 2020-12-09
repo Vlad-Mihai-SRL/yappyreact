@@ -40,7 +40,7 @@ export default function MainNavbar() {
 				} else console.log("no reqs");
 			});
 	}
-	getFriendRequests();
+	if (loaded === false) getFriendRequests();
 	return (
 		<Navbar
 			sticky="top"

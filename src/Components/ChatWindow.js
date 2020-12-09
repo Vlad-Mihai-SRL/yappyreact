@@ -81,6 +81,14 @@ export default function ChatWindow() {
 								receiver: userEmail,
 								date: new Date(),
 							});
+							Axios.post("http://34.125.94.177:8080/api/seen-message", {
+								messageid: data.mid,
+								sessionid: userID,
+								email: userEmail,
+							}).then((response) => {
+								console.log(response);
+								console.log(data);
+							});
 							myRef.current.scrollIntoView({ behavior: "smooth" });
 						}
 					});
