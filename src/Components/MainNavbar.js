@@ -60,9 +60,11 @@ export default function MainNavbar() {
 
         var channel = pusher.subscribe(channelListen);
         channel.bind("newmessage", function (data) {
-            setSrc("../newnotif.png");
-
-            audio.play();
+            if (data.sender !== userEmail) {
+                setSrc("../newnotif.png");
+                console.log(data);
+                audio.play();
+            }
         });
     }, []);
     return (
