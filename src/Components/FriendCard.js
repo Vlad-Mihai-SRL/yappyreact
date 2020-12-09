@@ -56,7 +56,14 @@ export default function FriendCard(props) {
                     />
                 </Col>
                 <Col className="mt-auto mb-auto" xl={4}>
-                    <h5>{props.petname}</h5>
+                    <h5>
+                        <a
+                            href={"/profile/" + props.email}
+                            style={{ color: "#d90429" }}
+                        >
+                            {props.petname}
+                        </a>
+                    </h5>
                 </Col>
                 <Col className="mt-auto mb-auto" xl={3}>
                     <a

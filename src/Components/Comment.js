@@ -14,13 +14,21 @@ import Axios from "axios";
 const userEmail = Cookies.get("userEmail");
 const userID = Cookies.get("sessionID");
 export default function Comment(props) {
-	return (
-		<>
-			<Card style={{ backgroundColor: "whitesmoke" }} className="m-1 p-0">
-				<Card.Body className="p-2 m-0">
-					<b>{props.petname}</b>: {props.content}
-				</Card.Body>
-			</Card>
-		</>
-	);
+    return (
+        <>
+            <Card style={{ backgroundColor: "whitesmoke" }} className="m-1 p-0">
+                <Card.Body className="p-2 m-0">
+                    <b>
+                        <a
+                            href={"/profile/" + props.author}
+                            style={{ color: "#d90429" }}
+                        >
+                            {props.petname}
+                        </a>
+                    </b>
+                    : {props.content}
+                </Card.Body>
+            </Card>
+        </>
+    );
 }
