@@ -35,7 +35,6 @@ export default function Register(props) {
 			petBreed.length > 0 &&
 			petName.length > 0 &&
 			petDate.length > 0 &&
-			petWeight.length > 0
 		);
 	}
 
