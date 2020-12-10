@@ -34,7 +34,13 @@ function SearchCard(props) {
         event.preventDefault();
     }
     return (
-        <Card className="p-5 m-3 ml-auto mr-auto" style={{ width: "70%" }}>
+        <Card
+            className="p-5 m-3 ml-auto mr-auto"
+            style={{
+                width: "70%",
+                boxShadow: "0px 10px 26px 0px rgba(0,0,0,0.25)",
+            }}
+        >
             <div className="mt-auto mb-auto ml-auto mr-auto">
                 <img
                     src={

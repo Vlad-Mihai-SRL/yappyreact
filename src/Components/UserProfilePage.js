@@ -30,36 +30,68 @@ export default function UserProfilePage() {
     return (
         <>
             <MainNavbar />
-            <Container className="ml-auto mr-auto mt-5 text-center">
-                <img
-                    src={
-                        "http://34.125.94.177:8080/public/users/" +
-                        email +
-                        "/0/pp_min.webp"
-                    }
+            <img
+                width="100%"
+                src={
+                    "http://34.125.94.177:8080/public/users/" +
+                    email +
+                    "/0/cp_min.webp"
+                }
+                className="ml-auto mr-auto"
+                style={{
+                    position: "absolute",
+                    zIndex: "0",
+                    display: "block",
+                }}
+            />
+            <Container
+                className="ml-auto mr-auto mt-5 text-center"
+                style={{
+                    zIndex: "1000",
+                    position: "relative",
+                    display: "block",
+                    marginTop: "20vh",
+                }}
+            >
+                <div
+                    className="pt-2 pb-2"
                     style={{
-                        height: "15vh",
-                        width: "15vh",
-                        borderRadius: "50%",
+                        backgroundColor: "white",
+                        borderRadius: "30px",
+                        display: "block",
+                        boxShadow: "0px 10px 26px 0px rgba(0,0,0,0.75)",
                     }}
-                    className="ml-auto mr-auto mb-2"
-                />
-                <h2 className="ml-auto mr-auto text-center">
-                    {petName}'s profile
-                </h2>
-                {PostsArray.map((val) => (
-                    <PostCard
-                        author={val.author}
-                        content={val.content}
-                        userEmail={val.author}
-                        type={val.typesx}
-                        nrlikes={val.nrlikes}
-                        likeArray={val.likes}
-                        petname={val.petname}
-                        commentArray={val.comments}
-                        _id={val._id}
+                >
+                    <img
+                        src={
+                            "http://34.125.94.177:8080/public/users/" +
+                            email +
+                            "/0/pp_min.webp"
+                        }
+                        style={{
+                            height: "15vh",
+                            width: "15vh",
+                            borderRadius: "50%",
+                        }}
+                        className="ml-auto mr-auto mb-2"
                     />
-                ))}
+                    <h2 className="ml-auto mr-auto text-center">
+                        {petName}'s profile
+                    </h2>
+                    {PostsArray.map((val) => (
+                        <PostCard
+                            author={val.author}
+                            content={val.content}
+                            userEmail={val.author}
+                            type={val.typesx}
+                            nrlikes={val.nrlikes}
+                            likeArray={val.likes}
+                            petname={val.petname}
+                            commentArray={val.comments}
+                            _id={val._id}
+                        />
+                    ))}
+                </div>
             </Container>
         </>
     );

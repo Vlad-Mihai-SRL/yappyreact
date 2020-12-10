@@ -36,7 +36,11 @@ export default function FriendCard(props) {
     return (
         <Container
             className="ml-auto mr-auto text-center mt-3 pt-2 pb-2"
-            style={{ backgroundColor: "whitesmoke", borderRadius: "20px" }}
+            style={{
+                backgroundColor: "whitesmoke",
+                borderRadius: "20px",
+                boxShadow: "0px 10px 16px 0px rgba(0,0,0,0.2)",
+            }}
         >
             <Row>
                 <Col className="mt-auto mb-auto" xl={4}>

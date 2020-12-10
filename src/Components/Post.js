@@ -115,6 +115,7 @@ export default function PostCard(props) {
                 <Card
                     style={{ width: "95%" }}
                     className="mt-5 mb-5 text-center ml-auto mr-auto variableWidth"
+                    style={{ boxShadow: "0px 10px 26px 0px rgba(0,0,0,0.35)" }}
                 >
                     <Card.Img variant="top" src={imgstring} />
                     <Card.Body>
