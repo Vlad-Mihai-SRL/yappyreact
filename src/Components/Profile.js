@@ -133,7 +133,7 @@ export default function Profile() {
                         zIndex: "1000",
                         position: "relative",
                         display: "block",
-                        marginTop: "20vh",
+                        marginTop: "30vh",
                     }}
                 >
                     <div
@@ -173,7 +173,6 @@ export default function Profile() {
                             <br></br>
                             Change your profile picture
                         </label>
-
                         <input
                             type="file"
                             name="file2"
@@ -185,7 +184,7 @@ export default function Profile() {
                             {" "}
                             <Upload size={25} />
                             <br></br>
-                            Change your cover picture
+                            &nbsp;&nbsp;Change your cover picture
                         </label>
                         <h5
                             style={{

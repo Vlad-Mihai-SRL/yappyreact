@@ -45,12 +45,12 @@ export default function UserProfilePage() {
                 }}
             />
             <Container
-                className="ml-auto mr-auto mt-5 text-center"
+                className="ml-auto mr-auto  text-center"
                 style={{
                     zIndex: "1000",
                     position: "relative",
                     display: "block",
-                    marginTop: "20vh",
+                    marginTop: "30vh",
                 }}
             >
                 <div
