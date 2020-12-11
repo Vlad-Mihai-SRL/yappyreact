@@ -57,11 +57,19 @@ export default function Profile() {
         formData.append("ind", "0");
         // Post the form, just make sure to set the 'Content-Type' header
         axios
-            .post("http://34.125.94.177:8080/api/modify-profilepic", formData, {
-                headers: {
-                    "Content-Type": "multipart/form-data",
-                },
-            })
+            .post(
+                "http://34.125.94.177:8080/api/modify-profilepic/" +
+                    userID +
+                    "/" +
+                    userEmail +
+                    "/0",
+                formData,
+                {
+                    headers: {
+                        "Content-Type": "multipart/form-data",
+                    },
+                }
+            )
             .then((response) => {
                 if (response.reason === undefined) {
                     console.log(response);
@@ -84,7 +92,11 @@ export default function Profile() {
         // Post the form, just make sure to set the 'Content-Type' header
         axios
             .post(
-                "http://34.125.94.177:8080/api/change-profile-cover",
+                "http://34.125.94.177:8080/api/change-profile-cover/" +
+                    userID +
+                    "/" +
+                    userEmail +
+                    "/0",
                 formData,
                 {
                     headers: {

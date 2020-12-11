@@ -76,7 +76,11 @@ export default function MainNavbar() {
             <Navbar.Brand href="/">
                 <img src="../logopng.png" height="40px" width="40px" />
             </Navbar.Brand>
-            <Navbar.Brand href="/" style={{ color: "white" }}>
+            <Navbar.Brand
+                href="/"
+                style={{ color: "white" }}
+                className="mr-auto"
+            >
                 Yappy Pets
             </Navbar.Brand>
 
