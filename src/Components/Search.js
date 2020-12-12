@@ -35,7 +35,7 @@ function SearchCard(props) {
     }
     return (
         <Card
-            className="p-5 m-3 ml-auto mr-auto"
+            className="p-5 m-2 ml-auto mr-auto text-center"
             style={{
                 width: "70%",
                 boxShadow: "0px 10px 26px 0px rgba(0,0,0,0.25)",
@@ -67,12 +67,11 @@ function SearchCard(props) {
             </div>
             <Button
                 onClick={sendFriendRequest}
-                size="md ml-auto mr-auto"
-                style={{ width: "10rem" }}
+                className="ml-auto mr-auto text-center"
+                style={{ width: "8rem" }}
                 variant="danger"
             >
-                {" "}
-                {text}{" "}
+                {text}
             </Button>
         </Card>
     );

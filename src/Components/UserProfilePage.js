@@ -45,7 +45,7 @@ export default function UserProfilePage() {
                 }}
             />
             <Container
-                className="ml-auto mr-auto  text-center"
+                className="ml-auto mr-auto text-center"
                 style={{
                     zIndex: "1000",
                     position: "relative",

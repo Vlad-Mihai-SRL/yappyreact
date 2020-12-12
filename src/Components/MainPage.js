@@ -8,14 +8,17 @@ import MainNavbar from "./MainNavbar";
 import NewPost from "./NewPost";
 import Feed from "./Feed";
 export default function MainPage() {
-	return (
-		<>
-			<MainNavbar />
-			<Container>
-				<h1 className="text-center pl-5 pr-5 mt-5"> Welcome to Happy Pets! </h1>
-				<NewPost />
-				<Feed />
-			</Container>
-		</>
-	);
+    return (
+        <>
+            <MainNavbar />
+            <Container>
+                <h1 className="text-center pl-5 pr-5 mt-5">
+                    {" "}
+                    Welcome to Yappy Pets!{" "}
+                </h1>
+                <NewPost />
+                <Feed />
+            </Container>
+        </>
+    );
 }

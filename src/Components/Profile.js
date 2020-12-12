@@ -177,14 +177,15 @@ export default function Profile() {
                             name="file"
                             id="file"
                             onChange={handleChange}
-                            className="inputfile"
+                            className="inputfile mt-0 ml-2 mr-2"
                         />
-                        <label for="file" className="mt-0 mr-1">
+                        <label for="file" className="mt-0 ml-2 mr-2">
                             {" "}
                             <Upload size={25} />
                             <br></br>
-                            Change your profile picture
+                            Upload profile picture
                         </label>
+                        <br></br>
                         <input
                             type="file"
                             name="file2"
@@ -192,11 +193,11 @@ export default function Profile() {
                             onChange={handleChangeCover}
                             className="inputfile"
                         />
-                        <label for="file2" className="mt-0 ml-1">
+                        <label for="file2" className="mt-0">
                             {" "}
                             <Upload size={25} />
                             <br></br>
-                            &nbsp;&nbsp;Change your cover picture
+                            &nbsp;Upload cover picture&nbsp;
                         </label>
                         <h5
                             style={{

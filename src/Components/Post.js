@@ -26,7 +26,7 @@ export default function PostCard(props) {
     const [srce, setSrce] = useState("");
     if (srce === "" && likeArray.includes(userEmail) === true)
         setSrce("../paw1.png");
-    else if (srce === "") setSrce("paw2.png");
+    else if (srce === "") setSrce("../paw2.png");
     function likePost() {
         setSrce("../paw1.png");
         Axios.post("http://34.125.94.177:8080/api/like-post", {
