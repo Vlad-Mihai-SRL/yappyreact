@@ -36,7 +36,10 @@ export default function Login(props) {
                         )
                         .then((response) => {
                             Cookies.set("petname", response.data.pets[0].name);
-                            window.postMessage({ email: email, sid: sid });
+                            window.postMessage(
+                                { email: email, sid: sid },
+                                "http://yappypets.com"
+                            );
                             console.log(response);
                             window.location.reload(false);
                         });
