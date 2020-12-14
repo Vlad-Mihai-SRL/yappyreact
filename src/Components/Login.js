@@ -36,10 +36,10 @@ export default function Login(props) {
                         )
                         .then((response) => {
                             Cookies.set("petname", response.data.pets[0].name);
-                            window.postMessage(
-                                { email: email, sid: sid },
-                                "http://yappypets.com"
-                            );
+                            window.ReactNativeWebView.postMessage({
+                                email: email,
+                                sid: sid,
+                            });
                             console.log(response);
                             window.location.reload(false);
                         });
