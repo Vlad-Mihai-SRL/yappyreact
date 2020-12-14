@@ -28,6 +28,7 @@ export default function Login(props) {
                     console.log({ error });
                 } else {
                     Cookies.set("sessionID", response.data.id);
+                    let sid = response.data.id;
                     Cookies.set("userEmail", email);
                     axios
                         .get(
@@ -35,6 +36,7 @@ export default function Login(props) {
                         )
                         .then((response) => {
                             Cookies.set("petname", response.data.pets[0].name);
+                            window.postMessage({ email: email, sid: sid });
                             console.log(response);
                             window.location.reload(false);
                         });

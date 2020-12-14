@@ -140,7 +140,7 @@ export default function Profile() {
                 />
 
                 <Container
-                    className="pl-5 pr-5 ml-auto mr-auto"
+                    className="pl-2 pr-2 ml-auto mr-auto"
                     style={{
                         zIndex: "1000",
                         position: "relative",
@@ -149,7 +149,7 @@ export default function Profile() {
                     }}
                 >
                     <div
-                        className="Login mt-0 mb-3 text-center"
+                        className="Login mt-0 mb-3 text-center pl-1 pr-1"
                         style={{
                             backgroundColor: "white",
                             borderRadius: "30px",
