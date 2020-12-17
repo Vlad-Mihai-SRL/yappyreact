@@ -11,7 +11,7 @@ const axios = require("axios").default;
 export default function Profile() {
     function handleSubmit(event) {
         axios
-            .post("http://34.125.94.177:8080/api/modify-animal", {
+            .post("http://34.125.62.201:8080/api/modify-animal", {
                 ind: 0,
                 email: userEmail,
                 id: userID,
@@ -38,7 +38,7 @@ export default function Profile() {
     const [fullName, setFullName] = useState("");
     function getByEmail(email) {
         axios
-            .get("http://34.125.94.177:8080/api/fetch-user/" + email)
+            .get("http://34.125.62.201:8080/api/fetch-user/" + email)
             .then((response) => {
                 console.log(response);
                 setLoaded(true);
@@ -58,7 +58,7 @@ export default function Profile() {
         // Post the form, just make sure to set the 'Content-Type' header
         axios
             .post(
-                "http://34.125.94.177:8080/api/modify-profilepic/" +
+                "http://34.125.62.201:8080/api/modify-profilepic/" +
                     userID +
                     "/" +
                     userEmail +
@@ -92,7 +92,7 @@ export default function Profile() {
         // Post the form, just make sure to set the 'Content-Type' header
         axios
             .post(
-                "http://34.125.94.177:8080/api/change-profile-cover/" +
+                "http://34.125.62.201:8080/api/change-profile-cover/" +
                     userID +
                     "/" +
                     userEmail +
@@ -127,7 +127,7 @@ export default function Profile() {
                 <img
                     width="100%"
                     src={
-                        "http://34.125.94.177:8080/public/users/" +
+                        "http://34.125.62.201:8080/public/users/" +
                         userEmail +
                         "/0/cp_min.webp"
                     }
@@ -159,7 +159,7 @@ export default function Profile() {
                     >
                         <img
                             src={
-                                "http://34.125.94.177:8080/public/users/" +
+                                "http://34.125.62.201:8080/public/users/" +
                                 userEmail +
                                 "/0/pp_min.webp"
                             }
@@ -206,7 +206,12 @@ export default function Profile() {
                             }}
                             className="mt-3"
                         >
-                            {animal.name}
+                            <a
+                                href={"/profile/" + userEmail}
+                                style={{ color: "#d90429" }}
+                            >
+                                {animal.name}
+                            </a>
                         </h5>
                         <Form onSubmit={handleSubmit}>
                             <Form.Group size="lg" controlId="fullName">

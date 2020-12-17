@@ -23,7 +23,7 @@ export default function Chat() {
     }
     useEffect(() => {
         Axios.get(
-            "http://35.190.221.195:8080/api/get-friend-list/" +
+            "http://34.125.62.201:8080/api/get-friend-list/" +
                 userID +
                 "/" +
                 userEmail

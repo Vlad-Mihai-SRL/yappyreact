@@ -22,7 +22,7 @@ export default function MainNavbar() {
     const [display, setDisplay] = useState("");
     const [src, setSrc] = useState("");
     useEffect(() => {
-        Axios.post("http://34.125.94.177:8080/api/get-friend-requests", {
+        Axios.post("http://34.125.62.201:8080/api/get-friend-requests", {
             sessionid: userID,
             email: userEmail,
         }).then((response) => {
@@ -43,7 +43,7 @@ export default function MainNavbar() {
             } else console.log("no reqs");
         });
         Axios.get(
-            "http://34.125.94.177:8080/api/has-new-messages/" +
+            "http://34.125.62.201:8080/api/has-new-messages/" +
                 userID +
                 "/" +
                 userEmail

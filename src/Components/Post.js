@@ -8,9 +8,13 @@ import { useState } from "react";
 import { Upload } from "react-bootstrap-icons";
 import ReactPlayer from "react-player/lazy";
 import Comment from "./Comment";
+import Popup from "reactjs-popup";
 import "./Feed.css";
+import "./Post.css";
+
 import Cookies from "js-cookie";
 import Axios from "axios";
+import { Trash } from "react-bootstrap-icons";
 const userEmail = Cookies.get("userEmail");
 const userID = Cookies.get("sessionID");
 const userPetName = Cookies.get("petname");
@@ -29,7 +33,7 @@ export default function PostCard(props) {
     else if (srce === "") setSrce("../paw2.png");
     function likePost() {
         setSrce("../paw1.png");
-        Axios.post("http://34.125.94.177:8080/api/like-post", {
+        Axios.post("http://34.125.62.201:8080/api/like-post", {
             postid: props._id,
             sessionid: userID,
             email: userEmail,
@@ -54,7 +58,7 @@ export default function PostCard(props) {
                 />
             ))
         );
-        Axios.post("http://34.125.94.177:8080/api/add-comment", {
+        Axios.post("http://34.125.62.201:8080/api/add-comment", {
             postid: props._id,
             sessionid: userID,
             email: userEmail,
@@ -69,6 +73,17 @@ export default function PostCard(props) {
         });
         setComment("");
         event.preventDefault();
+    }
+    function deletePost() {
+        Axios.post("http://34.125.62.201:8080/api/delete-post", {
+            postid: props._id,
+            sessionid: userID,
+            email: userEmail,
+        }).then((response) => {
+            if (response.data.reason === undefined) {
+                window.location.reload(false);
+            }
+        });
     }
     function showMore() {
         console.log(stateComments);
@@ -98,13 +113,13 @@ export default function PostCard(props) {
         );
     }
     var imgstring =
-        "http://34.125.94.177:8080/public/users/" +
+        "http://34.125.62.201:8080/public/users/" +
         props.userEmail +
         "/0/" +
         props._id +
         "_min.webp";
     var videostring =
-        "http://34.125.94.177:8080/public/users/" +
+        "http://34.125.62.201:8080/public/users/" +
         props.userEmail +
         "/0/" +
         props._id +
@@ -117,6 +132,26 @@ export default function PostCard(props) {
                     className="mt-5 mb-5 text-center ml-auto mr-auto variableWidth"
                     style={{ boxShadow: "0px 10px 26px 0px rgba(0,0,0,0.35)" }}
                 >
+                    {props.author === userEmail ? (
+                        <Button
+                            className="ml-auto text-right"
+                            onClick={deletePost}
+                            style={{
+                                width: "12%",
+                                right: "0",
+                                position: "absolute",
+                                backgroundColor: "white",
+                                opacity: "0.9",
+                                borderRadius: "0",
+                                border: "none",
+                            }}
+                        >
+                            {" "}
+                            <Trash style={{ color: "red" }} size="20" />{" "}
+                        </Button>
+                    ) : (
+                        <></>
+                    )}
                     <Card.Img variant="top" src={imgstring} />
                     <Card.Body>
                         <Card.Title className="m-0">
@@ -196,6 +231,26 @@ export default function PostCard(props) {
                 style={{ boxShadow: "0px 10px 26px 0px rgba(0,0,0,0.35)" }}
                 className="mt-5 mb-5 text-center ml-auto mr-auto variableWidth"
             >
+                {props.author === userEmail ? (
+                    <Button
+                        className="ml-auto text-right"
+                        onClick={deletePost}
+                        style={{
+                            width: "12%",
+                            right: "0",
+                            position: "relative",
+                            backgroundColor: "white",
+                            opacity: "0.9",
+                            borderRadius: "0",
+                            border: "none",
+                        }}
+                    >
+                        {" "}
+                        <Trash style={{ color: "red" }} size="20" />{" "}
+                    </Button>
+                ) : (
+                    <></>
+                )}
                 <Card.Body>
                     <ReactPlayer
                         className="ml-auto mr-auto "
@@ -264,7 +319,6 @@ export default function PostCard(props) {
                         </Row>
                     </Form>
                 </Card.Body>
-
                 {commentsCards}
                 <Button onClick={showMore} variant="danger" className="m-0">
                     {" "}

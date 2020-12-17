@@ -26,7 +26,7 @@ function App() {
     async function isValidated(sesID, mail) {
         axios
             .get(
-                "http://34.125.94.177:8080/api/check-session/" +
+                "http://34.125.62.201:8080/api/check-session/" +
                     sesID +
                     "/" +
                     mail

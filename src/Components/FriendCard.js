@@ -18,7 +18,7 @@ export default function FriendCard(props) {
     const [loaded, setLoaded] = useState(false);
     useEffect(() => {
         Axios.get(
-            "http://34.125.94.177:8080/api/has-new-messages-from-user/" +
+            "http://34.125.62.201:8080/api/has-new-messages-from-user/" +
                 userID +
                 "/" +
                 userEmail +
@@ -47,7 +47,7 @@ export default function FriendCard(props) {
                     <img
                         className="ml-auto mr-auto"
                         src={
-                            "http://34.125.94.177:8080/public/users/" +
+                            "http://34.125.62.201:8080/public/users/" +
                             props.email +
                             "/0/pp_min.webp"
                         }

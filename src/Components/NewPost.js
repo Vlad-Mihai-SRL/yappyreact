@@ -34,7 +34,7 @@ export default function NewPost() {
         formData.append("petname", petname);
         console.log(post.typesx);
         axios
-            .post("http://34.125.94.177:8080/api/add-post", formData, {
+            .post("http://34.125.62.201:8080/api/add-post", formData, {
                 headers: {
                     "Content-Type": "multipart/form-data",
                 },

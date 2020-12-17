@@ -14,6 +14,8 @@ import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import MainNavbar from "./MainNavbar";
+import Popup from "reactjs-popup";
+
 import PostCard from "./Post";
 export default function UserProfilePage() {
     let { email } = useParams();
@@ -21,7 +23,7 @@ export default function UserProfilePage() {
     const [petName, setPetName] = useState("");
     useEffect(() => {
         Axios.get(
-            "http://34.125.94.177:8080/api/get-user-profile/" + email
+            "http://34.125.62.201:8080/api/get-user-profile/" + email
         ).then((response) => {
             setPostsArray(response.data.posts);
             setPetName(response.data.petname);
@@ -33,7 +35,7 @@ export default function UserProfilePage() {
             <img
                 width="100%"
                 src={
-                    "http://34.125.94.177:8080/public/users/" +
+                    "http://34.125.62.201:8080/public/users/" +
                     email +
                     "/0/cp_min.webp"
                 }
@@ -64,7 +66,7 @@ export default function UserProfilePage() {
                 >
                     <img
                         src={
-                            "http://34.125.94.177:8080/public/users/" +
+                            "http://34.125.62.201:8080/public/users/" +
                             email +
                             "/0/pp_min.webp"
                         }

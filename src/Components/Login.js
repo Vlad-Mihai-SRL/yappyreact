@@ -16,7 +16,7 @@ export default function Login(props) {
 
     function handleSubmit(event) {
         axios
-            .post("http://34.125.94.177:8080/api/login", {
+            .post("http://34.125.62.201:8080/api/login", {
                 email: email,
                 password: password,
             })
@@ -32,7 +32,7 @@ export default function Login(props) {
                     Cookies.set("userEmail", email);
                     axios
                         .get(
-                            "http://34.125.94.177:8080/api/fetch-user/" + email
+                            "http://34.125.62.201:8080/api/fetch-user/" + email
                         )
                         .then((response) => {
                             Cookies.set("petname", response.data.pets[0].name);

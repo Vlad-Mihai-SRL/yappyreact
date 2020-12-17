@@ -15,47 +15,47 @@ import Axios from "axios";
 const userEmail = Cookies.get("userEmail");
 const userID = Cookies.get("sessionID");
 export default function Feed() {
-	const [loaded, setLoaded] = useState(false);
-	const [PostsArray, setPostsArray] = useState([]);
+    const [loaded, setLoaded] = useState(false);
+    const [PostsArray, setPostsArray] = useState([]);
 
-	function getPosts() {
-		Axios.get(
-			"http://34.125.94.177:8080/api/get-feed/" + userEmail + "/" + userID
-		).then((response) => {
-			if (response.data.reason === undefined) {
-				setPostsArray(response.data);
-				setLoaded(true);
-				console.log(response);
-			} else console.log(response);
-		});
-	}
+    function getPosts() {
+        Axios.get(
+            "http://34.125.62.201:8080/api/get-feed/" + userEmail + "/" + userID
+        ).then((response) => {
+            if (response.data.reason === undefined) {
+                setPostsArray(response.data);
+                setLoaded(true);
+                console.log(response);
+            } else console.log(response);
+        });
+    }
 
-	if (loaded === false) getPosts();
-	if (loaded === true)
-		return (
-			<>
-				<Container className="ml-auto mr-auto mt-5 text-center">
-					{PostsArray.map((val) => (
-						<PostCard
-							author={val.author}
-							content={val.content}
-							userEmail={val.author}
-							type={val.typesx}
-							nrlikes={val.nrlikes}
-							likeArray={val.likes}
-							petname={val.petname}
-							commentArray={val.comments}
-							_id={val._id}
-						/>
-					))}
-				</Container>
-			</>
-		);
-	else {
-		return (
-			<>
-				<h1>Loading</h1>
-			</>
-		);
-	}
+    if (loaded === false) getPosts();
+    if (loaded === true)
+        return (
+            <>
+                <Container className="ml-auto mr-auto mt-5 text-center">
+                    {PostsArray.map((val) => (
+                        <PostCard
+                            author={val.author}
+                            content={val.content}
+                            userEmail={val.author}
+                            type={val.typesx}
+                            nrlikes={val.nrlikes}
+                            likeArray={val.likes}
+                            petname={val.petname}
+                            commentArray={val.comments}
+                            _id={val._id}
+                        />
+                    ))}
+                </Container>
+            </>
+        );
+    else {
+        return (
+            <>
+                <h1>Loading</h1>
+            </>
+        );
+    }
 }
